@@ -1,0 +1,359 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+body {
+  font-family: Pretendard;
+  background-color: #fff8eb;
+  min-height: 100vh;
+  margin: 0;
+}
+
+header {
+  width: 100vw;
+  height: 45px;
+  background-color: white;
+  padding: 10px;
+  position: fixed;
+  .logo {
+    width: 123px;
+    height: 40px;
+  }
+}
+
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+
+  .content {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100vh;
+    background: #fff8eb;
+  }
+}
+
+main.content {
+  display: flex;
+  width: 100%;
+  min-height: calc(100vh - 60px);
+}
+
+nav {
+  margin-top: 65px;
+  width: 287px;
+  height: 100vh;
+  background-color: white;
+  font-weight: 500;
+  font-size: 25.26px;
+  color: black;
+  padding: 20px;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+.sidebar {
+  width: 287px;
+  min-width: 200px;
+  background: white;
+  height: 100vh;
+  position: fixed;
+}
+
+nav > ul > li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.title-main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-left: 340px;
+  margin-top: 60px;
+  width: 100%;
+  max-width: 1200px;
+  box-sizing: border-box;
+  padding: 0 20px;
+}
+
+.title-main,
+.date-container {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.main {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  gap: 20px;
+  width: 100%;
+  height: calc(100vh - 220px);
+  min-height: 600px;
+  align-items: stretch;
+  box-sizing: border-box;
+  padding: 0 20px;
+}
+
+.title {
+  background-color: #fff8eb;
+  width: 100%;
+  padding: 20px;
+
+  > h3 {
+    font-size: 33.67px;
+    font-weight: 600;
+  }
+}
+
+.date-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 20px;
+  background-color: white;
+  gap: 20px;
+  padding: 20px;
+  margin-top: 32px;
+  margin-bottom: 32px;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 32px 24px 24px 24px;
+  box-sizing: border-box;
+}
+
+.date {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.today-label {
+  font-size: 25.26px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+.today-date {
+  font-size: 53.88px;
+  font-weight: Bold;
+  color: black;
+  letter-spacing: 2px;
+}
+
+.add-todo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.add-todo > input {
+  width: 100%;
+  height: 44px;
+  border: none;
+  color: black;
+  border-radius: 10px 0 0 10px;
+  padding: 0 20px;
+  font-size: 20px;
+  background-color: #f2f2f2;
+  flex: 1;
+}
+
+.add-todo-button {
+  width: 207px;
+  height: 44px;
+  background-color: #ffa14a;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.add-schedule-button {
+  width: 207px;
+  height: 44px;
+  background-color: #a27144;
+  color: white;
+  border-radius: 0 10px 10px 0;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 33.67px;
+  font-weight: 500;
+}
+
+.todo-container,
+.stats-container,
+.schedule-container {
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+  margin-top: 20px;
+  overflow-y: auto;
+  height: 100%;
+  min-height: 600px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  flex-grow: 1;
+}
+
+.todo-container {
+  min-width: 466px;
+  flex: 1;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid #eee;
+  gap: 12px;
+}
+
+.checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.todo-item input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ffa14a;
+  border-radius: 50%;
+  appearance: none;
+  cursor: pointer;
+}
+
+.todo-item input[type="checkbox"]:checked {
+  background-color: #ffa14a;
+  border-color: #ffa14a;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E");
+  background-size: 16px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.todo-item input[type="checkbox"]:checked + .todo-text {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.todo-text {
+  font-size: 16px;
+  color: black;
+  flex: 1;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  color: #ff6b6b;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.todo-item:hover .delete-btn {
+  opacity: 1;
+}
+
+.stats-container {
+  min-width: 0;
+  padding: 20px;
+  text-align: center;
+  flex: 1;
+}
+
+.completion-rate {
+  margin-bottom: 20px;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.rate {
+  font-size: 48px;
+  color: #ffa14a;
+  font-weight: 900;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+#completionChart {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.stats-detail {
+  font-size: 20px;
+  line-height: 1.5;
+  color: black;
+  margin-top: 20px;
+}
+
+.schedule-container {
+  min-width: 411px;
+  flex: 1;
+}
+
+.schedule-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid #eee;
+  gap: 12px;
+}
+
+.schedule-item input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ffa14a;
+  border-radius: 50%;
+  appearance: none;
+  cursor: pointer;
+}
+
+.schedule-item input[type="checkbox"]:checked {
+  background-color: #ffa14a;
+  border-color: #ffa14a;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E");
+  background-size: 16px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.schedule-item input[type="checkbox"]:checked + .schedule-text {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.schedule-item:hover .delete-btn {
+  opacity: 1;
+}
