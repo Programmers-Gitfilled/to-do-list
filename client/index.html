@@ -5,9 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To-do-list</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="./main.js" defer></script>
+    <!-- <script type="module" src="./script.js" ></script> -->
+    <script type="module" src="./script2.js" ></script>
+    <script type="module" src="./lib/storage.js"></script>
 </head>
 <body>
-    <h1>투두 리스트</h1>
+    <h1>To Do List</h1>
+    <form class="todoForm">
+        <input class="todoContent" type="text" placeholder="계획 입력하기"/>
+        <button class="addTodo" type="submit" >+</button>
+    </form>
+
+    <ul class="todoList">
+    </ul>
+
+
 </body>
+
+
 </html>

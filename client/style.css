@@ -1,0 +1,35 @@
+
+* {
+
+}
+.todoForm {
+
+}
+
+.todoContent {
+
+}
+
+.addTodo {
+
+}
+
+.todoList {
+
+}
+
+.todoList > li {
+    list-style-type: none;
+    display: flex;
+}
+
+.doneBtn {
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+.doneBtn svg > path{
+    fill: rgb(255, 187, 0);
+}
+

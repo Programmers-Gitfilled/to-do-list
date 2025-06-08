@@ -1,0 +1,1 @@
+// getNode, insertLast 등의 도우미 함수
