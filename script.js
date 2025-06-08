@@ -5,14 +5,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   init();
 
-  const todayDate = document.querySelector(".today-date");
-  const today = new Date();
-  const year = today.getFullYear();
-  const month = String(today.getMonth() + 1).padStart(2, "0");
-  const date = String(today.getDate()).padStart(2, "0");
-  const days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
-  const day = days[today.getDay()];
-  todayDate.textContent = `${year}-${month}-${date} ${day}`;
+  getToday();
+
   const addTodoButton = document.querySelector(".add-todo-button");
   const addScheduleButton = document.querySelector(".add-schedule-button");
   const todoInput = document.querySelector(".todo-input");
@@ -104,8 +98,21 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem("schedules", JSON.stringify(scheduleArray));
       }
     }
-  });ㄴㄴ
+  });
 });
+
+// 날짜 구하기
+function getToday() {
+  const todayDate = document.querySelector(".today-date");
+  const today = new Date();
+  const year = today.getFullYear().toString();
+  const month = (today.getMonth() + 1).toString().padStart(2, "0");
+  const date = today.getDate().toString().padStart(2, "0");
+  const days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+  const day = days[today.getDay()];
+  todayDate.textContent = `${year}-${month}-${date}-${day}`;
+  return todayDate;
+}
 
 // 하나의 할 일 항목(<li>)을 todocontainer에 문자열로 생성
 function createItem(value, id, isCompleted = false) {
