@@ -83,8 +83,7 @@ function addItemArray(id, value){
     todoListArray.push(todo);
     setStorage(KEY, todoListArray);
 }
-todoListArray = [b,c,d,e]
-todoListArray.filter = [b,c,d,e]
+
 
 
 // 배열에서 해당 id와 일치하는 항목을 제거 (filter 사용)
