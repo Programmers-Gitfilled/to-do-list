@@ -90,6 +90,21 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   });
+
+  scheduleList.addEventListener("change", function (e) {
+    if (e.target.type === "checkbox") {
+      const li = e.target.closest(".schedule-item");
+      const id = li.dataset.id;
+      const isCompleted = e.target.checked;
+
+      // scheduleArray에서 해당 항목 찾아서 상태 업데이트
+      const scheduleItem = scheduleArray.find((item) => item.id === id);
+      if (scheduleItem) {
+        scheduleItem.isCompleted = isCompleted;
+        localStorage.setItem("schedules", JSON.stringify(scheduleArray));
+      }
+    }
+  });ㄴㄴ
 });
 
 // 하나의 할 일 항목(<li>)을 todocontainer에 문자열로 생성
@@ -207,6 +222,7 @@ function init() {
 
 let completionChart;
 
+// 통계(달성률) 도넛 차트를 초기화하고 렌더링링
 function initChart() {
   const ctx = document.getElementById("completionChart");
   if (!ctx) {
@@ -241,6 +257,7 @@ function initChart() {
   });
 }
 
+// 하나의 스케줄줄 항목(<li>)을 schedule-container에 문자열로 생성
 function createSchedule(value, id, isCompleted = false) {
   return `
     <li class="schedule-item" data-id="${id}">
@@ -259,6 +276,8 @@ function createSchedule(value, id, isCompleted = false) {
 
 let scheduleArray = [];
 
+// createSchedule을 사용해 생성된 <li>를 target 요소의 맨 뒤에 추가함
+// (ui 목록 안에 li가 삽입되는 구조)
 function renderSchedule({
   target,
   value,
