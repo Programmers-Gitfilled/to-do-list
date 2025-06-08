@@ -63,19 +63,17 @@ document.addEventListener("DOMContentLoaded", function () {
     if (e.target.classList.contains("delete-btn")) {
       const li = e.target.closest(".todo-item");
       const id = li.dataset.id;
-      removeItem(id);
+      removeItem(id, "todo");
     }
   });
 
-   scheduleList.addEventListener("click", function (e) {
+  scheduleList.addEventListener("click", function (e) {
     if (e.target.classList.contains("delete-btn")) {
       const li = e.target.closest(".schedule-item");
       const id = li.dataset.id;
-      removeItem(id);
+      removeItem(id, "schedule");
     }
   });
-
-
 
   todoList.addEventListener("change", function (e) {
     if (e.target.type === "checkbox") {
@@ -154,7 +152,7 @@ function updateStats() {
   completionChart.update();
 }
 // 해당 data-id를 가진 <li>요소를 찾아 DOM에서 제거
-function removeItem(id) {
+function removeItem(id, type = "todo") {
   // data-id 속성으로 해당 할 일 항목 찾기
   const item = document.querySelector(`li[data-id="${id}"]`);
 
@@ -163,10 +161,14 @@ function removeItem(id) {
     item.remove();
   }
 
-  todoListArray = todoListArray.filter((item) => item.id !== id);
-  localStorage.setItem("todos", JSON.stringify(todoListArray));
-
-  updateStats();
+  if (type === "todo") {
+    todoListArray = todoListArray.filter((item) => item.id !== id);
+    localStorage.setItem("todos", JSON.stringify(todoListArray));
+    updateStats();
+  } else if (type === "schedule") {
+    scheduleArray = scheduleArray.filter((item) => item.id !== id);
+    localStorage.setItem("schedules", JSON.stringify(scheduleArray));
+  }
 }
 
 // 페이지가 로드되었을 때 실행
@@ -275,4 +277,3 @@ function renderSchedule({
     localStorage.setItem("schedules", JSON.stringify(scheduleArray));
   }
 }
-
