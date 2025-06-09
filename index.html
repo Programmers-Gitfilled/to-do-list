@@ -9,12 +9,9 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
-    <header class="header">
-      <img src="./assets/logo.png" alt="what2do logo" class="logo" />
-      <div class="headerbox"></div>
-    </header>
     <main class="content">
-      <nav class="sidebar">
+      <nav class="sidebarLeft">
+        <div class="navHeader">ToDoList</div>
         <ul>
           <li>
             <svg
@@ -36,7 +33,7 @@
                 </clippath>
               </defs>
             </svg>
-            <a class="dashboard">Dashboard</a>
+            <a>Dashboard</a>
           </li>
           <li>
             <svg
@@ -58,7 +55,7 @@
                 </clippath>
               </defs>
             </svg>
-            <a class="mytodos">My Todos</a>
+            <a>My Todos</a>
           </li>
           <li>
             <svg
@@ -81,7 +78,7 @@
               </defs>
             </svg>
 
-            <a class="schedule">Schedule</a>
+            <a>Schedule</a>
           </li>
           <li>
             <svg
@@ -97,61 +94,148 @@
               />
             </svg>
 
-            <a class="completed">Completed</a>
+            <a>Completed</a>
           </li>
         </ul>
+        <button class="theme" type="button">change theme</button>
       </nav>
+
       <div class="title-main">
-        <div class="title">
-          <h3>Dashboard</h3>
-          <div class="date-container">
-            <div class="date">
-              <span class="today-label">Today :</span>
-              <span class="today-date"></span>
-            </div>
-            <div class="add-todo">
-              <input
-                class="todo-input schedule-input"
-                type="text"
-                placeholder="Add a new todo or schedule..."
-              />
-              <button class="add-todo-button">+ New todo</button>
-              <button class="add-schedule-button">+ New schedule</button>
-            </div>
+        <div class="date">
+          <span class="today-label"></span>
+          <span class="today-date"></span>
+        </div>
+        <div class="add-todo">
+          <div class="addInput">
+            <input
+              class="todo-input schedule-input"
+              type="text"
+              placeholder="문장을 입력해주세요"
+            />
+          </div>
+          <div class="addBtn">
+            <button class="add-todo-button">To Do</button>
+            <button class="add-schedule-button">Schedule</button>
           </div>
         </div>
-        <div class="main">
-          <div class="mytodos">
-            <h3>My Todos</h3>
-            <div class="todo-container">
-              <ul>
-                <li class="todo-item"></li>
-              </ul>
-            </div>
+
+        <div class="mytodos">
+          <p>My Todos</p>
+          <div class="todo-container">
+            <ul>
+              <li class="todo-item">
+                <div class="checkbox-wrapper">
+                  <input type="checkbox"/>
+                  <span class="todo-text">Thins will work out all right.Thins will work out all right.Thins will work out all right. </span>
+                </div>
+                <button class="delete-btn"> </button>
+              </li>
+              <li class="todo-item">
+                <div class="checkbox-wrapper">
+                  <input type="checkbox"/>
+                  <span class="todo-text">Thins will work out all right.Thins will work out all right.Thins will work out all right. </span>
+                </div>
+                <button class="delete-btn">❌</button>
+              </li>
+              
+            </ul>
           </div>
-          <div class="taskstats">
-            <h3>Task Stats</h3>
-            <div class="stats-container">
-              <div class="completion-rate">
-                <canvas id="completionChart"></canvas>
-                <span class="rate"></span>
-              </div>
-              <div class="stats-detail">
-                <p>총 todo 수: <span class="total-count"></span>개</p>
-                <p>달성 todo 수: <span class="completed-count"></span>개</p>
-              </div>
-            </div>
-          </div>
-          <div class="schedule">
-            <h3>Schedule</h3>
-            <div class="schedule-container">
-              <ul>
-                <li class="schedule-item"></li>
-              </ul>
-            </div>
+        </div>
+
+        <div class="schedule">
+          <p>Schedule</p>
+          <div class="schedule-container">
+            <ul>
+              <li class="schedule-item">
+                <div class="checkbox-wrapper">
+                  <input type="checkbox"/>
+                  <span class="todo-text">Thins will work out all right.Thins will work out all right.Thins will work out all right. </span>
+                </div>
+                <button class="delete-btn">❌</button>
+              </li>
+              <li class="schedule-item">
+                <div class="checkbox-wrapper">
+                  <input type="checkbox"/>
+                  <span class="todo-text">Thins will work out all right.Thins will work out all right.Thins will work out all right. </span>
+                </div>
+                <button class="delete-btn">❌</button>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
+
+
+      <nav class="sidebarRight">
+        <div class="taskstats">
+          <h3>Task Stats</h3>
+          <div class="stats-container">
+            <div class="completion-rate">
+              <canvas id="completionChart"></canvas>
+              <span class="rate"></span>
+            </div>
+            <div class="stats-detail">
+              <p>총 todo 수: <span class="total-count"></span>개</p>
+              <p>달성 todo 수: <span class="completed-count"></span>개</p>
+            </div>
+           </div>
+        </div>
+        <div class="memberInfo">
+          <p>추천 프로필</p>
+          <div class="user">
+            <div class="userProfile">
+              <img src="./assets/profile-yj.jpg" alt="프로필 사진" />
+              <div class="userInfo">
+                <p class="userId">YooJeong01</p>
+                <p class="userTag">팀 프로필</p>
+              </div>
+            </div>
+            <div class="follow">팔로우</div>
+          </div>
+          <div class="user">
+            <div class="userProfile">
+              <img src="./assets/free-icon-github-11376339.png" alt="프로필 사진" />
+              <div class="userInfo">
+                <p class="userId">jihyun9912</p>
+                <p class="userTag">팀 프로필</p>
+              </div>
+            </div>
+            <div class="follow">팔로우</div>
+          </div>
+          <div class="user">
+            <div class="userProfile">
+              <img src="./assets/free-icon-github-11376339.png" alt="프로필 사진" />
+              <div class="userInfo">
+                <p class="userId">msshin99</p>
+                <p class="userTag">팀 프로필</p>
+              </div> 
+            </div>
+            <div class="follow">팔로우</div>
+          </div>
+          <div class="user">
+            <div class="userProfile">
+              <img src="./assets/free-icon-github-11376339.png" alt="프로필 사진" />
+              <div class="userInfo">
+                <p class="userId">seungdev</p>
+                <p class="userTag">팀 프로필</p>
+              </div>
+            </div>
+            <div class="follow">팔로우</div>
+          </div>
+          <div class="user">
+            <div class="userProfile">
+              <img src="./assets/free-icon-github-11376339.png" alt="프로필 사진" />
+              <div class="userInfo">
+                <p class="userId">mintsky0172</p>
+                <p class="userTag">팀 프로필</p>
+              </div>
+            </div>
+            <div class="follow">팔로우</div>
+          </div>
+          
+        </div>
+
+      </nav>
     </main>
 
     <script src="./script.js" defer></script>

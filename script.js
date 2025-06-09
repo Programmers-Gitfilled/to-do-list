@@ -110,7 +110,7 @@ function getToday() {
   const date = today.getDate().toString().padStart(2, "0");
   const days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
   const day = days[today.getDay()];
-  todayDate.textContent = `${year}-${month}-${date}-${day}`;
+  todayDate.textContent = `${year}. ${month}. ${date} ${day}`;
   return todayDate;
 }
 
@@ -244,8 +244,8 @@ function initChart() {
         {
           data: [0, 100],
           backgroundColor: [
-            "#FFA14A", // 완료된 작업
-            "#F1F1F1", // 남은 작업업
+            "#2D67FF", // 완료된 작업
+            "#FAFAFA", // 남은 작업
           ],
           borderWidth: 0,
         },
