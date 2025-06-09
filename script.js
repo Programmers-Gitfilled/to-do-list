@@ -154,6 +154,50 @@ function renderItem({
   updateStats();
 }
 
+
+// 하나의 스케줄줄 항목(<li>)을 schedule-container에 문자열로 생성
+function createSchedule(value, id, isCompleted = false) {
+  return `
+    <li class="schedule-item" data-id="${id}">
+    <div class="checkbox-wrapper">
+      <input type="checkbox" id="schedule-${id}" ${
+    isCompleted ? "checked" : ""
+  } />
+      <span class="schedule-text">${value}</span>
+      </div>
+      <button class="delete-btn">
+        ❌
+      </button>
+    </li>
+  `.trim();
+}
+
+let scheduleArray = [];
+
+// createSchedule을 사용해 생성된 <li>를 target 요소의 맨 뒤에 추가함
+// (ui 목록 안에 li가 삽입되는 구조)
+function renderSchedule({
+  target,
+  value,
+  id,
+  isCompleted = false,
+  isInit = false,
+}) {
+  const liHTML = createSchedule(value, id, isCompleted);
+  const temp = document.createElement("div");
+  temp.innerHTML = liHTML;
+  const li = temp.firstElementChild;
+  target.appendChild(li);
+
+  if (!isInit) {
+    scheduleArray.push({ id, value, isCompleted });
+    localStorage.setItem("schedules", JSON.stringify(scheduleArray));
+  }
+}
+
+
+
+
 // 스탯 업데이트
 function updateStats() {
   const totalCount = todoListArray.length;
@@ -264,42 +308,3 @@ function initChart() {
   });
 }
 
-// 하나의 스케줄줄 항목(<li>)을 schedule-container에 문자열로 생성
-function createSchedule(value, id, isCompleted = false) {
-  return `
-    <li class="schedule-item" data-id="${id}">
-    <div class="checkbox-wrapper">
-      <input type="checkbox" id="schedule-${id}" ${
-    isCompleted ? "checked" : ""
-  } />
-      <span class="schedule-text">${value}</span>
-      </div>
-      <button class="delete-btn">
-        ❌
-      </button>
-    </li>
-  `.trim();
-}
-
-let scheduleArray = [];
-
-// createSchedule을 사용해 생성된 <li>를 target 요소의 맨 뒤에 추가함
-// (ui 목록 안에 li가 삽입되는 구조)
-function renderSchedule({
-  target,
-  value,
-  id,
-  isCompleted = false,
-  isInit = false,
-}) {
-  const liHTML = createSchedule(value, id, isCompleted);
-  const temp = document.createElement("div");
-  temp.innerHTML = liHTML;
-  const li = temp.firstElementChild;
-  target.appendChild(li);
-
-  if (!isInit) {
-    scheduleArray.push({ id, value, isCompleted });
-    localStorage.setItem("schedules", JSON.stringify(scheduleArray));
-  }
-}

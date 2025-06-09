@@ -190,7 +190,8 @@ flex: 0.7
   }
 }
 
-.todo-item input[type="checkbox"] {
+.todo-item input[type="checkbox"],
+.schedule-item input[type="checkbox"] {
   width: 22px;
   height: 22px;
   border: 2px solid #2D67FF;
@@ -199,7 +200,8 @@ flex: 0.7
   cursor: pointer;
 }
 
-.todo-item input[type="checkbox"]:checked {
+.todo-item input[type="checkbox"]:checked,
+.schedule-item input[type="checkbox"]:checked {
   background-color: #2D67FF;
   border-color: #2D67FF;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E");
@@ -208,18 +210,21 @@ flex: 0.7
   background-repeat: no-repeat;
 }
 
-.todo-item input[type="checkbox"]:checked + .todo-text {
+.todo-item input[type="checkbox"]:checked + .todo-text,
+.schedule-item input[type="checkbox"]:checked + .schedule-text {
   text-decoration: line-through;
   color: #999;
 }
 
-.todo-text {
+.todo-text,
+.schedule-text {
   font-size: 16px;
   color: black;
   flex: 1;
 }
 
-.todo-text:hover {
+.todo-text:hover,
+.schedule-text:hover {
   color: #2D67FF;
   transition: 0.2s;
 }
@@ -233,40 +238,9 @@ flex: 0.7
   transition: opacity 0.2s;
 }
 
-.todo-item:hover .delete-btn {
-  opacity: 1;
-}
-
-.schedule-item input[type="checkbox"] {
-  width: 20px;
-  height: 20px;
-  border: 2px solid #2D67FF;
-  border-radius: 50%;
-  appearance: none;
-  cursor: pointer;
-}
-
-.schedule-item input[type="checkbox"]:checked {
-  background-color: #2D67FF;
-  border-color: #2D67FF;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E");
-  background-size: 16px;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.schedule-item input[type="checkbox"]:checked + .schedule-text {
-  text-decoration: line-through;
-  color: #999;
-}
-
+.todo-item:hover .delete-btn,
 .schedule-item:hover .delete-btn {
   opacity: 1;
-}
-
-.schedule-text:hover {
-  color: #2D67FF;
-  transition: 0.2s;
 }
 
 
@@ -358,6 +332,14 @@ flex: 0.7
 
   border-radius: 4px;
   border: 1px solid #DDD;
+
+  > a {
+    text-decoration: none;
+    color: #000;
+  }
+  > a:visited {
+    text-decoration: none;
+  }
 }
 
 
