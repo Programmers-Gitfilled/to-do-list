@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="default.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="left">
+        <div class="top">
+          <figure><img src="img/logo.png" alt="로고이미지" /></figure>
+          <h3>Todolist</h3>
+        </div>
+        <ul class="list">
+          <li class="on">
+            <figure>
+              <img class="icon" src="img/list01_icon.png" alt="" />
+            </figure>
+            <p>Dashboard</p>
+            <img class="arrow" src="img/arrow.png" alt="" />
+          </li>
+          <li>
+            <figure>
+              <img class="icon" src="img/list01_icon.png" alt="" />
+            </figure>
+            <p>Product</p>
+          </li>
+          <li>
+            <figure>
+              <img class="icon" src="img/list01_icon.png" alt="" />
+            </figure>
+            <p>Customers</p>
+          </li>
+          <li>
+            <figure>
+              <img class="icon" src="img/list01_icon.png" alt="" />
+            </figure>
+            <p>Income</p>
+          </li>
+          <li>
+            <figure>
+              <img class="icon" src="img/list01_icon.png" alt="" />
+            </figure>
+            <p>Promote</p>
+          </li>
+          <li>
+            <figure>
+              <img class="icon" src="img/list01_icon.png" alt="" />
+            </figure>
+            <p>Help</p>
+          </li>
+        </ul>
+      </div>
+      <main>
+        <h2>임시의 제목글입니다</h2>
+        <div class="inputbox">
+          <input type="text" />
+          <p class="btnwrap">
+            <button>Todo</button>
+            <button>스케줄</button>
+          </p>
+        </div>
+        <div class="listwrap">
+          <h3>Todolist</h3>
+          <form>
+            <ul class="todolist"></ul>
+          </form>
+        </div>
+        <div class="listwrap">
+          <h3>Todolist</h3>
+          <form>
+            <ul class="todolist">
+              <li>
+                <input type="checkbox" id="todo1" name="todo" />
+                <label for="todo1">Things will work out all right.</label>
+              </li>
+            </ul>
+          </form>
+        </div>
+      </main>
+      <div class="right">
+        <h4>3팀의 프로필</h4>
+        <div class="stats-container">
+          <div class="completion-rate">
+            <canvas
+              id="completionChart"
+              width="200"
+              height="200"
+              style="
+                display: block;
+                box-sizing: border-box;
+                height: 200px;
+                width: 200px;
+              "
+            ></canvas>
+            <span class="rate">0%</span>
+          </div>
+          <div class="stats-detail">
+            <p>총 todo 수: <span class="total-count">2</span>개</p>
+            <p>달성 todo 수: <span class="completed-count">0</span>개</p>
+          </div>
+        </div>
+        <div class="profile">
+          <h4>3팀의 프로필</h4>
+          <ul>
+            <li>
+              <div class="info">
+                <p class="img"></p>
+                <p class="txt">
+                  <span class="email">msshin99.github</span>
+                  <span class="name">개인 프로필</span>
+                </p>
+              </div>
+              <a href="https://github.com/">바로가기</a>
+            </li>
+            <li>
+              <div class="info">
+                <p class="img"></p>
+                <p class="txt">
+                  <span class="email">msshin99.github</span>
+                  <span class="name">개인 프로필</span>
+                </p>
+              </div>
+              <a href="https://github.com/">바로가기</a>
+            </li>
+            <li>
+              <div class="info">
+                <p class="img"></p>
+                <p class="txt">
+                  <span class="email">msshin99.github</span>
+                  <span class="name">개인 프로필</span>
+                </p>
+              </div>
+              <a href="https://github.com/">바로가기</a>
+            </li>
+            <li>
+              <div class="info">
+                <p class="img"></p>
+                <p class="txt">
+                  <span class="email">msshin99.github</span>
+                  <span class="name">개인 프로필</span>
+                </p>
+              </div>
+              <a href="https://github.com/">바로가기</a>
+            </li>
+            <li>
+              <div class="info">
+                <p class="img"></p>
+                <p class="txt">
+                  <span class="email">msshin99.github</span>
+                  <span class="name">개인 프로필</span>
+                </p>
+              </div>
+              <a href="https://github.com/">바로가기</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
