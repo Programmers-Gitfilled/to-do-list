@@ -273,7 +273,7 @@ main .listwrap form {
   flex-direction: column;
   gap: 12px;
   height: 240px;
-  overflow-y: auto; /* scroll 대신 auto */
+  overflow-y: auto;
 }
 
 main .listwrap ul.todolist li {
@@ -282,10 +282,6 @@ main .listwrap ul.todolist li {
   align-items: center;
   gap: 8px;
   border-bottom: 1px solid #eee;
-}
-
-main .listwrap ul.todolist li:first-child {
-  padding-top: 0;
 }
 
 main .listwrap ul.todolist li input[type="checkbox"] {
@@ -326,18 +322,16 @@ main .listwrap ul.todolist li label {
   letter-spacing: -0.4px;
   flex: 1;
   cursor: pointer;
+  transition: color 0.3s ease;
 }
 
 main .listwrap ul.todolist li label:hover {
   color: #2d67ff;
 }
 
-main .listwrap h3 {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 16px;
+main .listwrap ul.todolist li input[type="checkbox"]:focus + label {
   color: #2d67ff;
-  font-family: Pretendard;
+  outline: none;
 }
 
 .right {
