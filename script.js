@@ -1,5 +1,6 @@
 // 페이지 로드 시 실행되는 메인 함수
 // 날짜 표시, 이벤트 리스너 설정 등등
+
 document.addEventListener("DOMContentLoaded", function () {
   initChart();
 

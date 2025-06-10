@@ -173,7 +173,7 @@ function updateStats() {
 }
 
 // 해당 data-id를 가진 <li>요소를 찾아 DOM에서 제거
-function removeItem(id, type = "todo") {
+function removeItem(id, type) {
   // data-id 속성으로 해당 할 일 항목 찾기
   const item = document.querySelector(`li[data-id="${id}"]`);
 
