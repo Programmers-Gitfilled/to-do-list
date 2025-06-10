@@ -10,7 +10,8 @@
   </head>
   <body>
     <header class="header">
-      <img src="./assets/logo.png" alt="what2do logo" class="logo" />
+      <img src="./assets/todo-logo.png" alt="todo logo" class="logo" />
+      <span class="logo-text">Todolist</span>
       <div class="headerbox"></div>
     </header>
     <main class="content">
@@ -129,7 +130,7 @@
               </ul>
             </div>
           </div>
-          <div class="taskstats">
+          <!-- <div class="taskstats">
             <h3>Task Stats</h3>
             <div class="stats-container">
               <div class="completion-rate">
@@ -141,7 +142,7 @@
                 <p>달성 todo 수: <span class="completed-count"></span>개</p>
               </div>
             </div>
-          </div>
+          </div> -->
           <div class="schedule">
             <h3>Schedule</h3>
             <div class="schedule-container">
@@ -152,6 +153,67 @@
           </div>
         </div>
       </div>
+      <!--오른쪽 사이드바 추가-->
+      <nav class="rightsidebar">
+        <div class="taskstats">
+            <h3>Task Stats</h3>
+            <div class="stats-container">
+              <div class="completion-rate">
+                <canvas id="completionChart"></canvas>
+                <span class="rate"></span>
+              </div>
+              <div class="stats-detail">
+                <p>총 todo 수: <span class="total-count"></span>개</p>
+                <p>달성 todo 수: <span class="completed-count"></span>개</p>
+              </div>
+            </div>
+          </div> 
+        <div class="recommend-profile">
+          <h3>추천 프로필</h3>
+          <ul class="profile-list">
+            <li class="profile-item">
+              <img src="./assets/jh.png" alt="프로필 이미지" class="profile-image" />
+              <div class="profile-info">
+                <p class="profile-id">jihyun9912</p>
+                <p class="profile-label">팀 프로필</p>
+              </div>
+              <button class="follow-button">팔로우</button>
+            </li>
+            <li class="profile-item">
+              <img src="./assets/ms.png" alt="프로필 이미지" class="profile-image" />
+              <div class="profile-info">
+                <p class="profile-id">msshin99</p>
+                <p class="profile-label">팀 프로필</p>
+              </div>
+              <button class="follow-button">팔로우</button>
+            </li>
+            <li class="profile-item">
+              <img src="./assets/se.png" alt="프로필 이미지" class="profile-image" />
+              <div class="profile-info">
+                <p class="profile-id">seungdev</p>
+                <p class="profile-label">팀 프로필</p>
+              </div>
+              <button class="follow-button">팔로우</button>
+            </li>
+            <li class="profile-item">
+              <img src="./assets/yj.jpg" alt="프로필 이미지" class="profile-image" />
+              <div class="profile-info">
+                <p class="profile-id">YooJeong01</p>
+                <p class="profile-label">팀 프로필</p>
+              </div>
+              <button class="follow-button">팔로우</button>
+            </li>
+            <li class="profile-item">
+              <img src="./assets/sm.png" alt="프로필 이미지" class="profile-image" />
+              <div class="profile-info">
+                <p class="profile-id">mintsky0172</p>
+                <p class="profile-label">팀 프로필</p>
+              </div>
+              <button class="follow-button">팔로우</button>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </main>
 
     <script src="./script.js" defer></script>

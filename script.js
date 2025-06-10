@@ -156,6 +156,14 @@ function updateStats() {
   const completionRate =
     totalCount === 0 ? 0 : Math.round((completedCount / totalCount) * 100);
 
+    //완성률 100이면 alert 창 띄우기
+  if(completionRate === 100 && totalCount > 0 && localStorage.getItem("alertShow")!== "true"){
+    alert("🔥 할 일 완료 !");
+    localStorage.setItem("alertShow","true");
+  }else if(completionRate < 100){
+    localStorage.setItem("alertShow","false");
+  }
+
   document.querySelector(".total-count").textContent = totalCount;
   document.querySelector(".completed-count").textContent = completedCount;
   document.querySelector(".rate").textContent = `${completionRate}%`;
@@ -166,6 +174,7 @@ function updateStats() {
   ];
   completionChart.update();
 }
+
 // 해당 data-id를 가진 <li>요소를 찾아 DOM에서 제거
 function removeItem(id, type = "todo") {
   // data-id 속성으로 해당 할 일 항목 찾기
@@ -229,8 +238,8 @@ function initChart() {
     console.error("Canvas element not found");
     return;
   }
-  completionChart = new Chart(ctx, {
-    type: "doughnut",
+  completionChart = new Chart(ctx, { //Chart.js의 Chart생성자 사용
+    type: "doughnut",  //도넛 차트 생성
     data: {
       labels: ["완료", "미완료"],
       datasets: [
