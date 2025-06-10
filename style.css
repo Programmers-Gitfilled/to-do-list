@@ -1,6 +1,7 @@
 body {
   background-color: #fafafa;
   height: 100%;
+  overflow: hidden;
 }
 
 h4 {
