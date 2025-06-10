@@ -7,10 +7,10 @@
 ---
 
 ### 🗂️ 프로젝트 구조
-├── index.html # 메인 HTML 파일
-├── style.css # CSS 파일
-├── script.js # 기능 구현 (JavaScript)
-└── assets/ # 아이콘, 이미지
+├── index.html       # 메인 HTML 파일
+├── style.css        # css 파일
+├── script.js        # 기능 구현 (JavaScript)
+└── assets/          # 아이콘, 이미지
 
 ---
 
@@ -43,13 +43,13 @@
 
 ### 👣 유저 플로우
 
-![유저 플로우](attachment:363140b6-8a9d-4035-9b58-827c1b2de6b0:image.png)
+![유저 플로우]!(https://github.com/user-attachments/assets/12ac0a00-03a0-4155-9a6f-85eddbacb87c)
 
 ---
 
 ### 🧱 구조도
 
-![구조도](attachment:6fbb45ea-c176-427b-bdeb-9c7a6d6b01c2:image.png)
+![구조도](https://github.com/user-attachments/assets/06428253-0fb9-4e0f-9a8d-49b9f8f4aa70)
 
 ---
 
