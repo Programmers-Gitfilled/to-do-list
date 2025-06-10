@@ -63,7 +63,7 @@
 
 | 변지현 | 신민석 | 이소민 | 이승은 | 황유정 |
 | --- | --- | --- | --- | --- |
-| ![사진](사진) | ![사진](사진) | ![사진](사진) | ![사진](사진) | ![사진](사진) |
+| ![Image](https://github.com/user-attachments/assets/39e0c988-31ec-4a45-b2f8-8577597f7a08) | ![Image](https://github.com/user-attachments/assets/1c9e185d-3dcb-4310-8bef-97c98e3e7733) | ![Image](https://github.com/user-attachments/assets/f70a3bf5-30e3-4908-8c1c-34f6fe54a531) | ![Image](https://github.com/user-attachments/assets/9cbdae79-b1fc-43dc-956d-191619a5027d) | ![Image](https://github.com/user-attachments/assets/22ac8949-8279-463f-84a5-8b2b9404c123) |
 | FE | FE | FE | FE | FE |
 | [GitHub](https://github.com/jihyun9912) | [GitHub](https://github.com/msshin99) | [GitHub](https://github.com/mintsky0172) | [GitHub](https://github.com/seungdev) | [GitHub](https://github.com/YooJeong01) |
 
