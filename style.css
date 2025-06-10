@@ -276,7 +276,9 @@ main .listwrap form {
   overflow-y: auto;
 }
 
-main .listwrap ul.todolist li {
+main .listwrap ul.todolist li,
+main .listwrap ul.schedulelist li  
+{
   display: flex;
   padding: 20px 0px;
   align-items: center;
@@ -284,7 +286,9 @@ main .listwrap ul.todolist li {
   border-bottom: 1px solid #eee;
 }
 
-main .listwrap ul.todolist li input[type="checkbox"] {
+main .listwrap ul.todolist li input[type="checkbox"], 
+main .listwrap ul.schedulelist input[type="checkbox"] 
+{
   width: 22px;
   height: 22px;
   border: 1px solid #ddd;
@@ -296,11 +300,14 @@ main .listwrap ul.todolist li input[type="checkbox"] {
   transition: border-color 0.4s ease;
 }
 
-main .listwrap ul.todolist li input[type="checkbox"]:focus {
+main .listwrap ul.todolist li input[type="checkbox"]:focus,
+main .listwrap ul.schedulelist li input[type="checkbox"]:focus
+{
   border: 1px solid #2d67ff;
 }
 
-main .listwrap ul.todolist li input[type="checkbox"]:checked::before {
+main .listwrap ul.todolist li input[type="checkbox"]:checked::before,
+main .listwrap ul.schedulelist li input[type="checkbox"]:checked::before {
   content: "";
   position: absolute;
   top: 2px;
@@ -313,7 +320,9 @@ main .listwrap ul.todolist li input[type="checkbox"]:checked::before {
   transition: border-color 0.4s ease;
 }
 
-main .listwrap ul.todolist li label {
+main .listwrap ul.todolist li label,
+main .listwrap ul.schedulelist li label
+{
   color: #222;
   font-family: Pretendard;
   font-size: 16px;
@@ -325,11 +334,15 @@ main .listwrap ul.todolist li label {
   transition: color 0.3s ease;
 }
 
-main .listwrap ul.todolist li label:hover {
+main .listwrap ul.todolist li label:hover,
+main .listwrap ul.schedulelist li label:hover
+{
   color: #2d67ff;
 }
 
-main .listwrap ul.todolist li input[type="checkbox"]:focus + label {
+main .listwrap ul.todolist li input[type="checkbox"]:focus + label,
+main .listwrap ul.schedulelist li input[type="checkbox"]:focus + label
+{
   color: #2d67ff;
   outline: none;
 }

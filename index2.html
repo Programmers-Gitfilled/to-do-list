@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>what2do</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <main class="content">
+      <nav class="sidebarLeft">
+        <div class="navHeader">ToDoList</div>
+        <ul>
+          <li>
+            <svg
+              width="36"
+              height="36"
+              viewBox="0 0 36 36"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g clip-path="url(#clip0_1_9)">
+                <path
+                  d="M15 30V21H21V30H28.5V18H33L18 4.5L3 18H7.5V30H15Z"
+                  fill="#0C0C0C"
+                />
+              </g>
+              <defs>
+                <clippath id="clip0_1_9">
+                  <rect width="36" height="36" fill="white" />
+                </clippath>
+              </defs>
+            </svg>
+            <a>Dashboard</a>
+          </li>
+          <li>
+            <svg
+              width="40"
+              height="40"
+              viewBox="0 0 40 40"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g clip-path="url(#clip0_1_35)">
+                <path
+                  d="M20 20C23.6833 20 26.6667 17.0167 26.6667 13.3333C26.6667 9.65 23.6833 6.66667 20 6.66667C16.3167 6.66667 13.3333 9.65 13.3333 13.3333C13.3333 17.0167 16.3167 20 20 20ZM20 23.3333C15.55 23.3333 6.66667 25.5667 6.66667 30V33.3333H33.3333V30C33.3333 25.5667 24.45 23.3333 20 23.3333Z"
+                  fill="black"
+                />
+              </g>
+              <defs>
+                <clippath id="clip0_1_35">
+                  <rect width="40" height="40" fill="white" />
+                </clippath>
+              </defs>
+            </svg>
+            <a>My Todos</a>
+          </li>
+          <li>
+            <svg
+              width="40"
+              height="40"
+              viewBox="0 0 40 40"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g clip-path="url(#clip0_2_22)">
+                <path
+                  d="M31.6667 6.66666H30V3.33333H26.6667V6.66666H13.3333V3.33333H10V6.66666H8.33333C6.48333 6.66666 5.01667 8.16666 5.01667 9.99999L5 33.3333C5 35.1667 6.48333 36.6667 8.33333 36.6667H31.6667C33.5 36.6667 35 35.1667 35 33.3333V9.99999C35 8.16666 33.5 6.66666 31.6667 6.66666ZM31.6667 33.3333H8.33333V16.6667H31.6667V33.3333ZM15 23.3333H11.6667V20H15V23.3333ZM21.6667 23.3333H18.3333V20H21.6667V23.3333ZM28.3333 23.3333H25V20H28.3333V23.3333ZM15 30H11.6667V26.6667H15V30ZM21.6667 30H18.3333V26.6667H21.6667V30ZM28.3333 30H25V26.6667H28.3333V30Z"
+                  fill="black"
+                />
+              </g>
+              <defs>
+                <clippath id="clip0_2_22">
+                  <rect width="40" height="40" fill="white" />
+                </clippath>
+              </defs>
+            </svg>
+
+            <a>Schedule</a>
+          </li>
+          <li>
+            <svg
+              width="36"
+              height="28"
+              viewBox="0 0 36 28"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11.18 21.75L2.84 13.41L0 16.23L11.18 27.41L35.18 3.41L32.36 0.589996L11.18 21.75Z"
+                fill="black"
+              />
+            </svg>
+
+            <a>Completed</a>
+          </li>
+        </ul>
+        <button class="theme" type="button">change theme</button>
+      </nav>
+
+      <div class="title-main">
+        <div class="date">
+          <span class="today-label"></span>
+          <span class="today-date"></span>
+        </div>
+        <div class="add-todo">
+          <div class="addInput">
+            <input
+              class="todo-input schedule-input"
+              type="text"
+              placeholder="문장을 입력해주세요"
+            />
+          </div>
+          <div class="addBtn">
+            <button class="add-todo-button">To Do</button>
+            <button class="add-schedule-button">Schedule</button>
+          </div>
+        </div>
+
+        <div class="mytodos">
+          <p>My Todos</p>
+          <div class="todo-container">
+            <ul>
+              <li class="todo-item">
+                <div class="checkbox-wrapper">
+                  <input type="checkbox"/>
+                  <span class="todo-text">Thins will work out all right.Thins will work out all right.Thins will work out all right. </span>
+                </div>
+                <button class="delete-btn"> </button>
+              </li>
+              <li class="todo-item">
+                <div class="checkbox-wrapper">
+                  <input type="checkbox"/>
+                  <span class="todo-text">Thins will work out all right.Thins will work out all right.Thins will work out all right. </span>
+                </div>
+                <button class="delete-btn">❌</button>
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+
+        <div class="schedule">
+          <p>Schedule</p>
+          <div class="schedule-container">
+            <ul>
+              <li class="schedule-item">
+                <div class="checkbox-wrapper">
+                  <input type="checkbox"/>
+                  <span class="schedule-text">Thins will work out all right.Thins will work out all right.Thins will work out all right. </span>
+                </div>
+                <button class="delete-btn">❌</button>
+              </li>
+              <li class="schedule-item">
+                <div class="checkbox-wrapper">
+                  <input type="checkbox"/>
+                  <span class="schedule-text">Thins will work out all right.Thins will work out all right.Thins will work out all right. </span>
+                </div>
+                <button class="delete-btn">❌</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+      <nav class="sidebarRight">
+        <div class="taskstats">
+          <h3>Task Stats</h3>
+          <div class="stats-container">
+            <div class="completion-rate">
+              <canvas id="completionChart"></canvas>
+              <span class="rate"></span>
+            </div>
+            <div class="stats-detail">
+              <p>총 todo 수: <span class="total-count"></span>개</p>
+              <p>달성 todo 수: <span class="completed-count"></span>개</p>
+            </div>
+           </div>
+        </div>
+
+        <div class="memberInfo">
+          <p>추천 프로필</p>
+          <div class="user">
+            <div class="userProfile">
+              <img src="./assets/profile-yj.jpg" alt="프로필 사진" />
+              <div class="userInfo">
+                <p class="userId">YooJeong01</p>
+                <p class="userTag">팀 프로필</p>
+              </div>
+            </div>
+            <div class="follow"><a href="https://github.com/YooJeong01" target="_blank">팔로우</a></div>
+          </div>
+          <div class="user">
+            <div class="userProfile">
+              <img src="./assets/free-icon-github-11376339.png" alt="프로필 사진" />
+              <div class="userInfo">
+                <p class="userId">jihyun9912</p>
+                <p class="userTag">팀 프로필</p>
+              </div>
+            </div>
+            <div class="follow"><a href="https://github.com/jihyun9912" target="_blank">팔로우</a></div>
+          </div>
+          <div class="user">
+            <div class="userProfile">
+              <img src="./assets/free-icon-github-11376339.png" alt="프로필 사진" />
+              <div class="userInfo">
+                <p class="userId">msshin99</p>
+                <p class="userTag">팀 프로필</p>
+              </div> 
+            </div>
+            <div class="follow"><a href="https://github.com/msshin99" target="_blank">팔로우</a></div>
+          </div>
+          <div class="user">
+            <div class="userProfile">
+              <img src="./assets/free-icon-github-11376339.png" alt="프로필 사진" />
+              <div class="userInfo">
+                <p class="userId">seungdev</p>
+                <p class="userTag">팀 프로필</p>
+              </div>
+            </div>
+            <div class="follow"><a href="https://github.com/seungdev" target="_blank">팔로우</a></div>
+          </div>
+          <div class="user">
+            <div class="userProfile">
+              <img src="./assets/free-icon-github-11376339.png" alt="프로필 사진" />
+              <div class="userInfo">
+                <p class="userId">mintsky0172</p>
+                <p class="userTag">팀 프로필</p>
+              </div>
+            </div>
+            <div class="follow"><a href="https://github.com/mintsky0172" target="_blank">팔로우</a></div>
+          </div>
+          
+        </div>
+
+      </nav>
+    </main>
+
+    <script src="./script2.js" defer></script>
+  </body>
+</html>

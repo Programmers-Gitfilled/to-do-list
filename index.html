@@ -53,30 +53,32 @@
         </ul>
       </div>
       <main>
-        <h2>임시의 제목글입니다</h2>
+        <div class="date">
+          <span class="today-label"></span>
+          <span class="today-date"></span>
+        </div>
         <div class="inputbox">
-          <input type="text" />
+          <input class="todo-input schedule-input" type="text" />
           <p class="btnwrap">
-            <button>Todo</button>
-            <button>스케줄</button>
+            <button class="add-todo-button">Todo</button>
+            <button class="add-schedule-button">스케줄</button>
           </p>
         </div>
+
         <div class="listwrap">
-          <h3>Todolist</h3>
-          <form>
-            <ul class="todolist"></ul>
-          </form>
+          <h3>Todos</h3>
+          <div class="todo-container">
+            <ul class="todolist">
+
+            </ul>
+          </div>
         </div>
         <div class="listwrap">
-          <h3>Todolist</h3>
-          <form>
-            <ul class="todolist">
-              <li>
-                <input type="checkbox" id="todo1" name="todo" />
-                <label for="todo1">Things will work out all right.</label>
-              </li>
+          <h3>Schedules</h3>
+          <div class="schedule-container">
+            <ul class="schedulelist">
             </ul>
-          </form>
+          </div>
         </div>
       </main>
       <div class="right">
@@ -97,8 +99,8 @@
             <span class="rate">0%</span>
           </div>
           <div class="stats-detail">
-            <p>총 todo 수: <span class="total-count">2</span>개</p>
-            <p>달성 todo 수: <span class="completed-count">0</span>개</p>
+            <p>총 todo 수: <span class="total-count"></span>개</p>
+            <p>달성 todo 수: <span class="completed-count"></span>개</p>
           </div>
         </div>
         <div class="profile">
