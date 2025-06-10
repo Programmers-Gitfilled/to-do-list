@@ -110,7 +110,7 @@ function getToday() {
   const date = today.getDate().toString().padStart(2, "0");
   const days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
   const day = days[today.getDay()];
-  todayDate.textContent = `${year}-${month}-${date}-${day}`;
+  todayDate.textContent = `${year}/${month}/${date} ${day}`;
   return todayDate;
 }
 
@@ -172,6 +172,10 @@ function updateStats() {
     100 - completionRate,
   ];
   completionChart.update();
+
+  if(completionRate === 100 && totalCount > 0){
+    alert("🎉할 일을 모두 완료했습니다!");
+  }
 }
 // 해당 data-id를 가진 <li>요소를 찾아 DOM에서 제거
 function removeItem(id, type = "todo") {
@@ -229,7 +233,7 @@ function init() {
 
 let completionChart;
 
-// 통계(달성률) 도넛 차트를 초기화하고 렌더링링
+// 통계(달성률) 도넛 차트를 초기화하고 렌더링
 function initChart() {
   const ctx = document.getElementById("completionChart");
   if (!ctx) {
@@ -244,8 +248,8 @@ function initChart() {
         {
           data: [0, 100],
           backgroundColor: [
-            "#FFA14A", // 완료된 작업
-            "#F1F1F1", // 남은 작업업
+            "#2D67FF", // 완료된 작업
+            "#F1F1F1", // 남은 작업
           ],
           borderWidth: 0,
         },
@@ -264,7 +268,7 @@ function initChart() {
   });
 }
 
-// 하나의 스케줄줄 항목(<li>)을 schedule-container에 문자열로 생성
+// 하나의 스케줄 항목(<li>)을 schedule-container에 문자열로 생성
 function createSchedule(value, id, isCompleted = false) {
   return `
     <li class="schedule-item" data-id="${id}">
@@ -284,7 +288,7 @@ function createSchedule(value, id, isCompleted = false) {
 let scheduleArray = [];
 
 // createSchedule을 사용해 생성된 <li>를 target 요소의 맨 뒤에 추가함
-// (ui 목록 안에 li가 삽입되는 구조)
+// (ul 목록 안에 li가 삽입되는 구조)
 function renderSchedule({
   target,
   value,

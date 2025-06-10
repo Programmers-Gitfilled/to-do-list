@@ -9,115 +9,180 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
-    <header class="header">
-      <img src="./assets/logo.png" alt="what2do logo" class="logo" />
-      <div class="headerbox"></div>
-    </header>
     <main class="content">
       <nav class="sidebar">
+        <div class="logo">
+          <svg
+            width="37"
+            height="37"
+            viewBox="0 0 37 37"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M18.5003 34.8876C17.4674 34.8876 16.4191 34.6564 15.602 34.1784L7.12286 29.2914C3.66953 26.9634 3.45369 26.6089 3.45369 22.9551V14.0443C3.45369 10.3905 3.65411 10.0359 7.04578 7.73887L15.5866 2.80553C17.2053 1.86512 19.7491 1.86512 21.3678 2.80553L29.8778 7.70803C33.3311 10.0359 33.547 10.3905 33.547 14.0443V22.9397C33.547 26.5934 33.3466 26.948 29.9549 29.2451L21.4141 34.1784C20.5816 34.6564 19.5332 34.8876 18.5003 34.8876ZM18.5003 4.42428C17.8528 4.42428 17.2207 4.54762 16.7736 4.8097L8.29453 9.7122C5.78161 11.408 5.78161 11.408 5.78161 14.0443V22.9397C5.78161 25.5759 5.78161 25.5759 8.35619 27.318L16.7736 32.1743C17.6832 32.6984 19.3328 32.6984 20.2424 32.1743L28.7216 27.2718C31.2191 25.5759 31.2191 25.5759 31.2191 22.9397V14.0443C31.2191 11.408 31.2191 11.408 28.6445 9.66595L20.227 4.8097C19.7799 4.54762 19.1478 4.42428 18.5003 4.42428Z"
+              fill="black"
+            />
+            <path
+              d="M18.5 24.2812C15.3088 24.2812 12.7188 21.6912 12.7188 18.5C12.7188 15.3088 15.3088 12.7188 18.5 12.7188C21.6912 12.7188 24.2812 15.3088 24.2812 18.5C24.2812 21.6912 21.6912 24.2812 18.5 24.2812ZM18.5 15.0312C16.5883 15.0312 15.0312 16.5883 15.0312 18.5C15.0312 20.4117 16.5883 21.9688 18.5 21.9688C20.4117 21.9688 21.9688 20.4117 21.9688 18.5C21.9688 16.5883 20.4117 15.0312 18.5 15.0312Z"
+              fill="black"
+            />
+          </svg>
+          <h3 class="logo-text">Todolist</h3>
+        </div>
+
         <ul>
           <li>
-            <svg
-              width="36"
-              height="36"
-              viewBox="0 0 36 36"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g clip-path="url(#clip0_1_9)">
+            <div class="category">
+              <svg
+                width="22"
+                height="24"
+                viewBox="0 0 22 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <path
-                  d="M15 30V21H21V30H28.5V18H33L18 4.5L3 18H7.5V30H15Z"
-                  fill="#0C0C0C"
+                  d="M2.75 21.2571H6.875V13.0286H15.125V21.2571H19.25V8.91429L11 2.74286L2.75 8.91429V21.2571ZM2.75 24C1.99375 24 1.34658 23.7317 0.8085 23.195C0.2695 22.6574 0 22.0114 0 21.2571V8.91429C0 8.48 0.0976247 8.06857 0.292875 7.68C0.487208 7.29143 0.75625 6.97143 1.1 6.72L9.35 0.548572C9.60208 0.365714 9.86562 0.228571 10.1406 0.137143C10.4156 0.0457142 10.7021 0 11 0C11.2979 0 11.5844 0.0457142 11.8594 0.137143C12.1344 0.228571 12.3979 0.365714 12.65 0.548572L20.9 6.72C21.2438 6.97143 21.5133 7.29143 21.7085 7.68C21.9028 8.06857 22 8.48 22 8.91429V21.2571C22 22.0114 21.731 22.6574 21.1929 23.195C20.6539 23.7317 20.0063 24 19.25 24H12.375V15.7714H9.625V24H2.75Z"
+                  fill="#2D67FF"
                 />
-              </g>
-              <defs>
-                <clippath id="clip0_1_9">
-                  <rect width="36" height="36" fill="white" />
-                </clippath>
-              </defs>
-            </svg>
-            <a class="dashboard">Dashboard</a>
-          </li>
-          <li>
-            <svg
-              width="40"
-              height="40"
-              viewBox="0 0 40 40"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g clip-path="url(#clip0_1_35)">
-                <path
-                  d="M20 20C23.6833 20 26.6667 17.0167 26.6667 13.3333C26.6667 9.65 23.6833 6.66667 20 6.66667C16.3167 6.66667 13.3333 9.65 13.3333 13.3333C13.3333 17.0167 16.3167 20 20 20ZM20 23.3333C15.55 23.3333 6.66667 25.5667 6.66667 30V33.3333H33.3333V30C33.3333 25.5667 24.45 23.3333 20 23.3333Z"
-                  fill="black"
-                />
-              </g>
-              <defs>
-                <clippath id="clip0_1_35">
-                  <rect width="40" height="40" fill="white" />
-                </clippath>
-              </defs>
-            </svg>
-            <a class="mytodos">My Todos</a>
-          </li>
-          <li>
-            <svg
-              width="40"
-              height="40"
-              viewBox="0 0 40 40"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g clip-path="url(#clip0_2_22)">
-                <path
-                  d="M31.6667 6.66666H30V3.33333H26.6667V6.66666H13.3333V3.33333H10V6.66666H8.33333C6.48333 6.66666 5.01667 8.16666 5.01667 9.99999L5 33.3333C5 35.1667 6.48333 36.6667 8.33333 36.6667H31.6667C33.5 36.6667 35 35.1667 35 33.3333V9.99999C35 8.16666 33.5 6.66666 31.6667 6.66666ZM31.6667 33.3333H8.33333V16.6667H31.6667V33.3333ZM15 23.3333H11.6667V20H15V23.3333ZM21.6667 23.3333H18.3333V20H21.6667V23.3333ZM28.3333 23.3333H25V20H28.3333V23.3333ZM15 30H11.6667V26.6667H15V30ZM21.6667 30H18.3333V26.6667H21.6667V30ZM28.3333 30H25V26.6667H28.3333V30Z"
-                  fill="black"
-                />
-              </g>
-              <defs>
-                <clippath id="clip0_2_22">
-                  <rect width="40" height="40" fill="white" />
-                </clippath>
-              </defs>
-            </svg>
+              </svg>
 
-            <a class="schedule">Schedule</a>
-          </li>
-          <li>
+              <p class="dashboard">Dashboard</p>
+            </div>
+
             <svg
-              width="36"
-              height="28"
-              viewBox="0 0 36 28"
+              width="6"
+              height="10"
+              viewBox="0 0 6 10"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M11.18 21.75L2.84 13.41L0 16.23L11.18 27.41L35.18 3.41L32.36 0.589996L11.18 21.75Z"
-                fill="black"
+                d="M1 9L5 5L1 1"
+                stroke="#2D67FF"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
               />
             </svg>
+          </li>
+          <li>
+            <div class="category2">
+              <svg
+                width="22"
+                height="24"
+                viewBox="0 0 22 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M11 12C14.0388 12 16.5 9.315 16.5 6C16.5 2.685 14.0388 0 11 0C7.96125 0 5.5 2.685 5.5 6C5.5 9.315 7.96125 12 11 12ZM11 15C7.32875 15 0 17.01 0 21V24H22V21C22 17.01 14.6713 15 11 15Z"
+                  fill="#9197B3"
+                />
+              </svg>
 
-            <a class="completed">Completed</a>
+              <p>My Todos</p>
+            </div>
+            <svg
+              width="6"
+              height="10"
+              viewBox="0 0 6 10"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1 9L5 5L1 1"
+                stroke="#9197B3"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </li>
+          <li>
+            <div class="category2">
+              <svg
+                width="24"
+                height="26"
+                viewBox="0 0 24 26"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20.75 3H19.5V0.5H17V3H7V0.5H4.5V3H3.25C1.8625 3 0.7625 4.125 0.7625 5.5L0.75 23C0.75 24.375 1.8625 25.5 3.25 25.5H20.75C22.125 25.5 23.25 24.375 23.25 23V5.5C23.25 4.125 22.125 3 20.75 3ZM20.75 23H3.25V10.5H20.75V23ZM8.25 15.5H5.75V13H8.25V15.5ZM13.25 15.5H10.75V13H13.25V15.5ZM18.25 15.5H15.75V13H18.25V15.5ZM8.25 20.5H5.75V18H8.25V20.5ZM13.25 20.5H10.75V18H13.25V20.5ZM18.25 20.5H15.75V18H18.25V20.5Z"
+                  fill="#9197B3"
+                />
+              </svg>
+              <p>Schedules</p>
+            </div>
+            <svg
+              width="6"
+              height="10"
+              viewBox="0 0 6 10"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1 9L5 5L1 1"
+                stroke="#9197B3"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </li>
+          <li>
+            <div class="category2">
+              <svg
+                width="25"
+                height="18"
+                viewBox="0 0 25 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M7.94485 14.2013L2.01819 8.60403L0 10.4966L7.94485 18L25 1.89262L22.996 0L7.94485 14.2013Z"
+                  fill="#9197B3"
+                />
+              </svg>
+              <p class="completed">Completed</p>
+            </div>
+            <svg
+              width="6"
+              height="10"
+              viewBox="0 0 6 10"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1 9L5 5L1 1"
+                stroke="#9197B3"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
           </li>
         </ul>
       </nav>
+
       <div class="title-main">
         <div class="title">
-          <h3>Dashboard</h3>
-          <div class="date-container">
+          <div class="title2">
+            <h3>Dashboard</h3>
             <div class="date">
-              <span class="today-label">Today :</span>
               <span class="today-date"></span>
             </div>
-            <div class="add-todo">
-              <input
-                class="todo-input schedule-input"
-                type="text"
-                placeholder="Add a new todo or schedule..."
-              />
-              <button class="add-todo-button">+ New todo</button>
-              <button class="add-schedule-button">+ New schedule</button>
-            </div>
+          </div>
+
+          <div class="add-todo">
+            <input
+              class="todo-input schedule-input"
+              type="text"
+              placeholder="Add a new todo or schedule..."
+            />
+            <button class="add-todo-button">+ todo</button>
+            <button class="add-schedule-button">+ schedule</button>
           </div>
         </div>
         <div class="main">
@@ -129,25 +194,94 @@
               </ul>
             </div>
           </div>
-          <div class="taskstats">
-            <h3>Task Stats</h3>
-            <div class="stats-container">
-              <div class="completion-rate">
-                <canvas id="completionChart"></canvas>
-                <span class="rate"></span>
-              </div>
-              <div class="stats-detail">
-                <p>총 todo 수: <span class="total-count"></span>개</p>
-                <p>달성 todo 수: <span class="completed-count"></span>개</p>
-              </div>
-            </div>
-          </div>
+
           <div class="schedule">
             <h3>Schedule</h3>
             <div class="schedule-container">
               <ul>
                 <li class="schedule-item"></li>
               </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-right">
+        <div class="taskstats">
+          <h4>Stats</h4>
+          <div class="stats-container">
+            <div class="completion-rate">
+              <canvas id="completionChart"></canvas>
+              <span class="rate"></span>
+            </div>
+            <div class="stats-detail">
+              <p>총 todo 수: <span class="total-count"></span>개</p>
+              <p>달성 todo 수: <span class="completed-count"></span>개</p>
+            </div>
+          </div>
+        </div>
+        <div class="profiles">
+          <h4>Recommended Profiles</h4>
+          <div class="profiles-container">
+            <div class="profiles2">
+              <div class="img-and-name">
+                <img src="./assets/profile_jh.png" />
+                <div class="name-container">
+                  <p class="id">jihyun9912</p>
+                  <p class="name">변지현</p>
+                </div>
+              </div>
+              <button type="button" class="follow">
+                <a href="https://github.com/jihyun9912">Follow</a>
+              </button>
+            </div>
+            <div class="profiles2">
+              <div class="img-and-name">
+                <img src="./assets/profile_ms.png" />
+                <div class="name-container">
+                  <p class="id">msshin99</p>
+                  <p class="name">신민석</p>
+                </div>
+              </div>
+              <button type="button" class="follow">
+                <a href="https://github.com/msshin99">Follow</a>
+              </button>
+            </div>
+            <div class="profiles2">
+              <div class="img-and-name">
+                <img src="./assets/profile_sm.png" />
+                <div class="name-container">
+                  <p class="id">mintsky0172</p>
+                  <p class="name">이소민</p>
+                </div>
+              </div>
+              <button type="button" class="follow">
+                <a href="https://github.com/mintsky0172">Follow</a>
+              </button>
+            </div>
+            <div class="profiles2">
+              <div class="img-and-name">
+                <img src="./assets/profile_se.png" />
+                <div class="name-container">
+                  <p class="id">seungdev</p>
+                  <p class="name">이승은</p>
+                </div>
+              </div>
+              <button type="button" class="follow">
+                <a href="https://github.com/seungdev">Follow</a>
+              </button>
+            </div>
+            <div class="profiles2">
+              <div class="img-and-name">
+                <img src="./assets/profile_yj.jpeg" />
+                <div class="name-container">
+                  <p class="id">YooJeong01</p>
+                  <p class="name">황유정</p>
+                </div>
+              </div>
+              <button type="button" class="follow">
+                <a href="https://github.com/YooJeong01">Follow</a>
+              </button>
             </div>
           </div>
         </div>
