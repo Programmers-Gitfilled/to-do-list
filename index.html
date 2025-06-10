@@ -6,9 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="default.css" />
     <link rel="stylesheet" href="style.css" />
-    <script src="script_fixed.js" defer></script>
-
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
@@ -53,75 +51,37 @@
         </ul>
       </div>
       <main>
-        <h2>임시의 제목글입니다</h2>
+        <div class="date">
+          <span class="today-label"></span>
+          <span class="today-date"></span>
+        </div>
         <div class="inputbox">
-          <input type="text" placeholder="오늘의 리스트를 작성해주세요" />
+          <input
+            class="todo-input schedule-input"
+            type="text"
+            placeholder="오늘의 투두리스트를 작성해주세요."
+          />
           <p class="btnwrap">
-            <button>Todo</button>
-            <button>스케줄</button>
+            <button class="add-todo-button">Todo</button>
+            <button class="add-schedule-button">스케줄</button>
           </p>
         </div>
+
         <div class="listwrap">
-          <h3>Todolist</h3>
-          <div class="form">
-            <ul class="todolist">
-              <li>
-                <input type="checkbox" id="todo1" name="todo" />
-                <label for="todo1">Things will work out all right.</label>
-              </li>
-              <li>
-                <input type="checkbox" id="todo1" name="todo" />
-                <label for="todo1"
-                  >Things will work ㅌㅌㅌㅌㅌㅌㅌㅌㅌㅌxout all right.</label
-                >
-              </li>
-              <li>
-                <input type="checkbox" id="todo1" name="todo" />
-                <label for="todo1">Things will work out all right.</label>
-              </li>
-              <li>
-                <input type="checkbox" id="todo1" name="todo" />
-                <label for="todo1">Things will work out all right.</label>
-              </li>
-              <li>
-                <input type="checkbox" id="todo1" name="todo" />
-                <label for="todo1">Things will work out all right.</label>
-              </li>
-              <li>
-                <input type="checkbox" id="todo1" name="todo" />
-                <label for="todo1">Things will work out all right.</label>
-              </li>
-            </ul>
+          <h3>Todos</h3>
+          <div class="todo-container">
+            <ul class="todolist"></ul>
           </div>
         </div>
+
         <div class="listwrap">
-          <h3>Todolist</h3>
-          <div class="form">
-            <ul class="todolist">
-              <li>
-                <input type="checkbox" id="todo1" name="todo" />
-                <label for="todo1">Things will work out all right.</label>
-              </li>
-              <li>
-                <input type="checkbox" id="todo1" name="todo" />
-                <label for="todo1">Things will work out all right.</label>
-              </li>
-              <li>
-                <input type="checkbox" id="todo1" name="todo" />
-                <label for="todo1">Things will work out all right.</label>
-              </li>
-              <li>
-                <input type="checkbox" id="todo1" name="todo" />
-                <label for="todo1">Things will work out all right.</label>
-              </li>
-              <li>
-                <input type="checkbox" id="todo1" name="todo" />
-                <label for="todo1">Things will work out all right.</label>
-              </li>
-            </ul>
+          <h3>Schedules</h3>
+          <div class="schedule-container">
+            <ul class="schedulelist"></ul>
           </div>
         </div>
       </main>
+
       <div class="right">
         <h4>3팀의 프로필</h4>
         <div class="stats-container">
@@ -140,8 +100,8 @@
             <span class="rate">0%</span>
           </div>
           <div class="stats-detail">
-            <p>총 todo 수: <span class="total-count">2</span>개</p>
-            <p>달성 todo 수: <span class="completed-count">0</span>개</p>
+            <p>총 todo 수: <span class="total-count"></span>개</p>
+            <p>달성 todo 수: <span class="completed-count"></span>개</p>
           </div>
         </div>
         <div class="profile">
