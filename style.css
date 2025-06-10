@@ -268,7 +268,7 @@ main .listwrap {
   overflow: hidden;
 }
 
-main .listwrap form {
+main .listwrap .form {
   display: flex;
   flex-direction: column;
   gap: 12px;
