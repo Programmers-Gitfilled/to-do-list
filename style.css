@@ -37,7 +37,7 @@ h4 {
 .left .top {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 20px;
 }
 
 .left .top figure {
@@ -382,6 +382,16 @@ main .listwrap ul.schedulelist li input[type="checkbox"]:focus + label {
   display: flex;
   justify-content: space-between;
   margin-top: 28px;
+  cursor: pointer;
+}
+
+.right .profile ul li:hover span.email {
+  color: #2d67ff;
+}
+
+.right .profile ul li:hover a {
+  background-color: #222;
+  color: #fff;
 }
 
 .right .profile ul li:first-child {
@@ -396,8 +406,13 @@ main .listwrap ul.schedulelist li input[type="checkbox"]:focus + label {
 .right .profile ul li .info p.img {
   width: 42px;
   height: 42px;
-  background-color: #ddd;
   border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid #ddd;
+}
+
+.right .profile ul li .info p.img img {
+  width: 100%;
 }
 
 .right .profile ul li .info p.txt span {
