@@ -160,6 +160,14 @@ function updateStats() {
 
   const totalRate = totalCnt === 0 ? 0 : Math.round((totalDone / totalCnt) * 100);
 
+  //달성률 100이면 alert 창 띄우기
+  if(totalRate === 100 && totalCnt > 0 && localStorage.getItem("alertShow")!== "true"){
+    alert("🔥 할 일 완료 !");
+    localStorage.setItem("alertShow","true");
+  }else if(totalRate < 100){
+    localStorage.setItem("alertShow","false");
+  }
+
   document.querySelector(".total-count").textContent = totalCnt;
   document.querySelector(".completed-count").textContent = totalDone;
   document.querySelector(".rate").textContent = `${Math.round(totalRate)}%`;
