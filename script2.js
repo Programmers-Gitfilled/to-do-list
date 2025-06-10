@@ -2,9 +2,7 @@
 // 날짜 표시, 이벤트 리스너 설정 등등
 document.addEventListener("DOMContentLoaded", function () {
   initChart();
-
   init();
-
   getToday();
 
   const addTodoButton = document.querySelector(".add-todo-button");
@@ -14,67 +12,40 @@ document.addEventListener("DOMContentLoaded", function () {
   const scheduleInput = document.querySelector(".schedule-input");
   const scheduleList = document.querySelector(".schedule-container ul");
 
-  // 버튼 클릭 이벤트 핸들러
+
   addTodoButton.addEventListener("click", function () {
     const todoText = todoInput.value.trim();
-
     if (todoText) {
-      // 입력값이 있는 경우에만
       const id = Date.now().toString(); // 고유 ID 생성
-
-      // renderItem 함수 호출하여 새로운 할 일 추가
-      renderTodo({
+      renderItem({
+        type : 'todo',
         target: todoList,
         value: todoText,
         id: id,
       });
-
-      // 입력창 초기화
       todoInput.value = "";
     }
   });
 
   addScheduleButton.addEventListener("click", function () {
     const scheduleText = scheduleInput.value.trim();
-
     if (scheduleText) {
-      // 입력값이 있는 경우에만
       const id = Date.now().toString(); // 고유 ID 생성
-
-      // renderItem 함수 호출하여 새로운 할 일 추가
-      renderSchedule({
+      renderItem({
+        type : 'schedule',
         target: scheduleList,
         value: scheduleText,
         id: id,
       });
-
-      // 입력창 초기화
       scheduleInput.value = "";
     }
   });
 
-  todoList.addEventListener("click", function (e) {
-    if (e.target.classList.contains("delete-btn")) {
-      const li = e.target.closest(".todo-item");
-      const id = li.dataset.id;
-      removeItem(id, "todo");
-    }
-  });
+  todoList.addEventListener("click", e => handleRemove(e, "todo"));
+  scheduleList.addEventListener("click", e => handleRemove(e, "schedule"));
 
-  scheduleList.addEventListener("click", function (e) {
-    if (e.target.classList.contains("delete-btn")) {
-      const li = e.target.closest(".schedule-item");
-      const id = li.dataset.id;
-      removeItem(id, "schedule");
-    }
-  });
-
-  todoList.addEventListener("change", function (e) {
-    if (e.target.type === "checkbox") {
-      const li = e.target.closest(".todo-item");
-      const id = li.dataset.id;
-      const isCompleted = e.target.checked;
-
+  todoList.addEventListener("change", (e) => {
+      const [id, isCompleted] = handleChange(e, "todo");
       // todoListArray에서 해당 항목 찾아서 상태 업데이트
       const todoItem = todoListArray.find((item) => item.id === id);
       if (todoItem) {
@@ -83,13 +54,10 @@ document.addEventListener("DOMContentLoaded", function () {
         updateStats();
       }
     }
-  });
+  );
 
-  scheduleList.addEventListener("change", function (e) {
-    if (e.target.type === "checkbox") {
-      const li = e.target.closest(".schedule-item");
-      const id = li.dataset.id;
-      const isCompleted = e.target.checked;
+  scheduleList.addEventListener("change", (e) => {
+      const [id, isCompleted] = handleChange(e, "schedule");
 
       // scheduleArray에서 해당 항목 찾아서 상태 업데이트
       const scheduleItem = scheduleArray.find((item) => item.id === id);
@@ -98,11 +66,29 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem("schedules", JSON.stringify(scheduleArray));
         updateStats();
       }
-    }
   });
-});
 
-// 날짜 구하기
+})
+
+
+
+function handleRemove(e, type){
+  if (e.target.classList.contains("delete-btn")) {
+    const li = e.target.closest(`.${type}-item`);
+    const id = li.dataset.id;
+    removeItem(id, type);
+  }
+}
+
+function handleChange(e, type){
+    if (e.target.type === "checkbox") {
+    const li = e.target.closest(`.${type}-item`);
+    const id = li.dataset.id;
+    const isCompleted = e.target.checked;
+    return [id, isCompleted]
+  }
+}
+
 function getToday() {
   const todayDate = document.querySelector(".today-date");
   const today = new Date();
@@ -112,16 +98,14 @@ function getToday() {
   const days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
   const day = days[today.getDay()];
   todayDate.textContent = `${year}. ${month}. ${date} ${day}`;
-  return todayDate;
 }
 
-// 하나의 할 일 항목(<li>)을 todocontainer에 문자열로 생성
-function createTodo(value, id, isCompleted = false) {
+function createItem(type, value, id, isCompleted = false) {
   return `
-    <li class="todo-item" data-id="${id}">
+    <li class="${type}-item" data-id="${id}">
     <div class="checkbox-wrapper">
-      <input type="checkbox" id="todo-${id}" ${isCompleted ? "checked" : ""} />
-      <span class="todo-text">${value}</span>
+      <input type="checkbox" id="${type}-${id}" ${isCompleted ? "checked" : ""} />
+      <span class="${type}-text">${value}</span>
       </div>
       <button class="delete-btn">
         ❌
@@ -131,72 +115,35 @@ function createTodo(value, id, isCompleted = false) {
 }
 
 let todoListArray = [];
-
-// createItem을 사용해 생성된 <li>를 target 요소의 맨 뒤에 추가함
-// (ui 목록 안에 li가 삽입되는 구조)
-function renderTodo({
-  target,
-  value,
-  id,
-  isCompleted = false,
-  isInit = false,
-}) {
-  const liHTML = createTodo(value, id, isCompleted);
-  const temp = document.createElement("div");
-  temp.innerHTML = liHTML;
-  const li = temp.firstElementChild;
-  target.appendChild(li);
-
-  if (!isInit) {
-    todoListArray.push({ id, value, isCompleted });
-    localStorage.setItem("todos", JSON.stringify(todoListArray));
-  }
-
-  updateStats();
-}
-
-
-// 하나의 스케줄줄 항목(<li>)을 schedule-container에 문자열로 생성
-function createSchedule(value, id, isCompleted = false) {
-  return `
-    <li class="schedule-item" data-id="${id}">
-    <div class="checkbox-wrapper">
-      <input type="checkbox" id="schedule-${id}" ${isCompleted ? "checked" : ""} />
-      <span class="schedule-text">${value}</span>
-      </div>
-      <button class="delete-btn">
-        ❌
-      </button>
-    </li>
-  `.trim();
-}
-
 let scheduleArray = [];
 
-// createSchedule을 사용해 생성된 <li>를 target 요소의 맨 뒤에 추가함
-// (ui 목록 안에 li가 삽입되는 구조)
-function renderSchedule({
+function renderItem({
+  type,
   target,
   value,
   id,
   isCompleted = false,
   isInit = false,
 }) {
-  const liHTML = createSchedule(value, id, isCompleted);
+  const liHTML = createItem(type,value, id, isCompleted);
   const temp = document.createElement("div");
   temp.innerHTML = liHTML;
   const li = temp.firstElementChild;
   target.appendChild(li);
 
   if (!isInit) {
-    scheduleArray.push({ id, value, isCompleted });
-    localStorage.setItem("schedules", JSON.stringify(scheduleArray));
+    if (type === 'todo') {
+      todoListArray.push({ id, value, isCompleted });
+      localStorage.setItem("todos", JSON.stringify(todoListArray));
+    }
+    if (type === 'schedule'){
+      scheduleArray.push({ id, value, isCompleted });
+      localStorage.setItem("schedules", JSON.stringify(scheduleArray));
+    }
   }
 
   updateStats();
 }
-
-
 
 
 // 스탯 업데이트
@@ -224,7 +171,6 @@ function updateStats() {
   ];
   completionChart.update();
 }
-
 
 // 해당 data-id를 가진 <li>요소를 찾아 DOM에서 제거
 function removeItem(id, type = "todo") {
@@ -259,7 +205,8 @@ function init() {
   if (savedTodos) {
     todoListArray = JSON.parse(savedTodos);
     todoListArray.forEach((item) => {
-      renderTodo({
+      renderItem({
+        type : "todo",
         target: todoList,
         value: item.value,
         id: item.id,
@@ -272,7 +219,8 @@ function init() {
   if (savedSchedules) {
     scheduleArray = JSON.parse(savedSchedules);
     scheduleArray.forEach((item) => {
-      renderSchedule({
+      renderItem({
+        type : "schedule",
         target: scheduleList,
         value: item.value,
         id: item.id,
