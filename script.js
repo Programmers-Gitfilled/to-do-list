@@ -96,6 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (scheduleItem) {
         scheduleItem.isCompleted = isCompleted;
         localStorage.setItem("schedules", JSON.stringify(scheduleArray));
+        updateStats();
       }
     }
   });
@@ -160,9 +161,7 @@ function createSchedule(value, id, isCompleted = false) {
   return `
     <li class="schedule-item" data-id="${id}">
     <div class="checkbox-wrapper">
-      <input type="checkbox" id="schedule-${id}" ${
-    isCompleted ? "checked" : ""
-  } />
+      <input type="checkbox" id="schedule-${id}" ${isCompleted ? "checked" : ""} />
       <span class="schedule-text">${value}</span>
       </div>
       <button class="delete-btn">
@@ -193,6 +192,8 @@ function renderSchedule({
     scheduleArray.push({ id, value, isCompleted });
     localStorage.setItem("schedules", JSON.stringify(scheduleArray));
   }
+
+  updateStats();
 }
 
 
@@ -200,23 +201,31 @@ function renderSchedule({
 
 // 스탯 업데이트
 function updateStats() {
-  const totalCount = todoListArray.length;
-  const completedCount = todoListArray.filter(
-    (item) => item.isCompleted
-  ).length;
-  const completionRate =
-    totalCount === 0 ? 0 : Math.round((completedCount / totalCount) * 100);
 
-  document.querySelector(".total-count").textContent = totalCount;
-  document.querySelector(".completed-count").textContent = completedCount;
-  document.querySelector(".rate").textContent = `${completionRate}%`;
+  const todoCnt = todoListArray.length;
+  const todoDoneCnt = todoListArray.filter( item => item.isCompleted).length;
+  const scheduleCnt = scheduleArray.length;
+  const scheduleDoneCnt = scheduleArray.filter( item => item.isCompleted).length;
+
+  const totalCnt = todoCnt + scheduleCnt;
+  const totalDone = todoDoneCnt + scheduleDoneCnt;
+  const totalRemain = totalCnt - totalDone;
+
+  const totalRate = totalCnt === 0 ? 0 : Math.round((totalDone / totalCnt) * 100);
+
+  document.querySelector(".total-count").textContent = totalCnt;
+  document.querySelector(".completed-count").textContent = totalDone;
+  document.querySelector(".rate").textContent = `${Math.round(totalRate)}%`;
 
   completionChart.data.datasets[0].data = [
-    completionRate,
-    100 - completionRate,
+    todoDoneCnt,
+    scheduleDoneCnt,
+    totalRemain
   ];
   completionChart.update();
 }
+
+
 // 해당 data-id를 가진 <li>요소를 찾아 DOM에서 제거
 function removeItem(id, type = "todo") {
   // data-id 속성으로 해당 할 일 항목 찾기
@@ -234,6 +243,7 @@ function removeItem(id, type = "todo") {
   } else if (type === "schedule") {
     scheduleArray = scheduleArray.filter((item) => item.id !== id);
     localStorage.setItem("schedules", JSON.stringify(scheduleArray));
+    updateStats();
   }
 }
 
@@ -283,12 +293,13 @@ function initChart() {
   completionChart = new Chart(ctx, {
     type: "doughnut",
     data: {
-      labels: ["완료", "미완료"],
+      labels: ["todos", "schedules", "incomplete"],
       datasets: [
         {
-          data: [0, 100],
+          data: [0, 0, 100],
           backgroundColor: [
             "#2D67FF", // 완료된 작업
+            "#f8dd63", // 완료된 작업
             "#FAFAFA", // 남은 작업
           ],
           borderWidth: 0,

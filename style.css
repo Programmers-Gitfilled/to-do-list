@@ -116,6 +116,7 @@ flex: 0.7
   gap: 8px;
 
   > .add-todo-button {
+      cursor: pointer;
     background: #2D67FF;
     color: white;
     border-width: 1px;
@@ -124,6 +125,7 @@ flex: 0.7
   }
 
   > .add-schedule-button {
+      cursor: pointer;
     background-color: white;
     color: #2D67FF;
     border-width: 1px;
@@ -174,6 +176,7 @@ flex: 0.7
 
 .todo-item, 
 .schedule-item {
+    cursor: pointer;
   padding: 20px 0px;
   display: flex;
   flex-direction: row;
