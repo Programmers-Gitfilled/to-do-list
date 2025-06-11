@@ -85,7 +85,7 @@ TO-DO-LIST/
 
 | 변지현 | 신민석 | 이소민 | 이승은 | 황유정 |
 | --- | --- | --- | --- | --- |
-| ![Image](https://github.com/user-attachments/assets/0e2c74ad-44bd-479b-95b0-f129418fd75d) | ![152215](https://github.com/user-attachments/assets/9e476e57-594a-409c-9316-8411501a4611)| ![Image](https://github.com/user-attachments/assets/f70a3bf5-30e3-4908-8c1c-34f6fe54a531) | ![Image](https://github.com/user-attachments/assets/6a2dbd4b-0ab9-4836-83bf-6e73bc761c0d) | ![Image](https://github.com/user-attachments/assets/22ac8949-8279-463f-84a5-8b2b9404c123) |
+| ![Image](https://github.com/user-attachments/assets/0e2c74ad-44bd-479b-95b0-f129418fd75d) | ![image](https://github.com/user-attachments/assets/bd8090b7-1fc3-4c1d-8714-a4133058842b)| ![Image](https://github.com/user-attachments/assets/f70a3bf5-30e3-4908-8c1c-34f6fe54a531) | ![Image](https://github.com/user-attachments/assets/6a2dbd4b-0ab9-4836-83bf-6e73bc761c0d) | ![Image](https://github.com/user-attachments/assets/22ac8949-8279-463f-84a5-8b2b9404c123) |
 | FE | FE | FE | FE | FE |
 | [GitHub](https://github.com/jihyun9912) | [GitHub](https://github.com/msshin99) | [GitHub](https://github.com/mintsky0172) | [GitHub](https://github.com/seungdev) | [GitHub](https://github.com/YooJeong01) |
 
