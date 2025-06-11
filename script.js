@@ -50,6 +50,7 @@ function saveToLocalStorage() {
     theme: appData.theme,
     todos: todoListArray,
     schedules: scheduleArray,
+    alertShow : appData.alertShow,
   };
   localStorage.setItem("appData", JSON.stringify(data));
 }
