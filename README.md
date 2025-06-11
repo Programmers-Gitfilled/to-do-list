@@ -40,8 +40,14 @@ TO-DO-LIST/
 ## 🚀 시작하는 방법
 
 1. 이 저장소를 클론하거나 다운로드한 뒤, 브라우저에서 `index.html`을 열어 사용해보세요!
-2. Netlify 링크로 접속하셔도 됩니다.
-3. Netlify 링크 : ```https://to-do-list03.netlify.app/```
+
+    ``` markdown
+    git clone https://github.com/Programmers-Gitfilled/to-do-list.git
+    ```
+
+1. [Netlify](https://to-do-list03.netlify.app/) 링크로 접속하셔도 됩니다.
+
+
 
 ## 🔩 사용 기술
 
