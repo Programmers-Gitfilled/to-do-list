@@ -43,11 +43,11 @@ if (themeToggle) {
     const currentTheme = appData.theme;
     const newTheme = currentTheme === "dark" ? "light" : "dark";
     setTheme(newTheme);
-    saveToLocalStorage();
+    setStorage();
   });
 }
 
-function saveToLocalStorage() {
+function setStorage() {
   const data = {
     theme: appData.theme,
     todos: todoListArray,
@@ -57,7 +57,7 @@ function saveToLocalStorage() {
   localStorage.setItem("appData", JSON.stringify(data));
 }
 
-function loadFromLocalStorage() {
+function getStorage() {
   const saved = localStorage.getItem("appData");
   if (saved) {
     const parsed = JSON.parse(saved);
@@ -68,7 +68,7 @@ function loadFromLocalStorage() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  loadFromLocalStorage();
+  getStorage();
   setTheme(appData.theme || "light");
 
   initChart();
@@ -273,7 +273,7 @@ function renderItem({
       scheduleArray.push({ id, value, isCompleted });
       appData.schedules = [...scheduleArray];
     }
-    saveToLocalStorage();
+    setStorage();
   }
 
   updateStats();
@@ -318,7 +318,7 @@ function updateStats() {
     completionChart.update();
   }
 
-  saveToLocalStorage();
+  setStorage();
 }
 
 function removeItem(id, type) {

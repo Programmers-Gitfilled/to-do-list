@@ -1,12 +1,19 @@
-import { loadFromLocalStorage } from "./lib/storage.js";
+//----------------------------------------//
+// 📌 메인 (전체 초기화)
+//----------------------------------------//
+
+import { getStorage } from "./lib/storage.js";
 import { state } from "./lib/state.js";
 import { initChart } from "./lib/chart.js";
 import { renderItem } from "./lib/render.js";
 import { initTheme } from "./lib/theme.js";
 import { bindEvents } from "./lib/event.js";
 
+/**
+ * 초기 실행
+ */
 document.addEventListener("DOMContentLoaded", () => {
-    loadFromLocalStorage();
+    getStorage();
     const setTheme = initTheme();
     initChart();
     setTheme(state.appData.theme || "light");
@@ -15,6 +22,9 @@ document.addEventListener("DOMContentLoaded", () => {
     getToday();
 });
 
+/**
+ * 초기 데이터 렌더링
+ */
 function init() {
     const todoList = document.querySelector(".todoList");
     const scheduleList = document.querySelector(".scheduleList");
@@ -38,6 +48,9 @@ function init() {
     });
 }
 
+/**
+ * 오늘 날짜 출력
+ */
 function getToday() {
     const todayDate = document.querySelector(".todayDate");
     const today = new Date();
