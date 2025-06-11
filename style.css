@@ -533,7 +533,7 @@ main .listWrap ul.scheduleList li input[type="checkbox"]:focus + label {
 .deleteBtn {
   background: none;
   border: none;
-  padding: 4px;
+  padding-right: 20px;
   cursor: pointer;
   color: var(--delete-color);
   opacity: 0;

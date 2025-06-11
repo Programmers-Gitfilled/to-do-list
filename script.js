@@ -230,16 +230,15 @@ function getToday() {
 
 function createItem(type, value, id, isCompleted = false) {
   return `
-    <li class="${type}Item" data-id="${id}">
-      <div class="checkboxWrapper">
-        <input type="checkbox" id="${type}-${id}" ${
+        <li class="${type}Item" data-id="${id}">
+            <div class="checkboxWrapper">
+                <input type="checkbox" id="${type}-${id}" ${
     isCompleted ? "checked" : ""
   } />
-        <span class="${type}Text">${value}</span>
-      </div>
-      <button class="deleteBtn">❌</button>
-    </li>
-  `.trim();
+                <label for="${type}-${id}" class="${type}Text">${value}</label>
+            </div>
+            <button class="deleteBtn">❌</button>
+        </li>`.trim();
 }
 
 function renderItem({
