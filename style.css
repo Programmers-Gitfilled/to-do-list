@@ -1,24 +1,25 @@
 body {
-  background-color: #fafafa;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   height: 100%;
   overflow: hidden;
 }
 
 h4 {
-  color: #222;
+  color: var(--text-primary);
   font-family: Pretendard;
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
-  line-height: 26px; /* 133.333% */
+  line-height: 26px;
   letter-spacing: -0.45px;
   margin-bottom: 20px;
 }
 
-.today-date {
+.todayDate {
   font-size: 26px;
   font-weight: 700;
-  color: #222;
+  color: var(--text-primary);
 }
 
 .container {
@@ -26,12 +27,14 @@ h4 {
   gap: 60px;
 }
 
+/* -----------------------------------left side 메뉴 입니다 -------------------------------- */
+
 .left {
   width: 100%;
   max-width: 300px;
   padding: 30px;
-  border-right: 1px solid #eee;
-  background-color: #fff;
+  border-right: 1px solid var(--border-color);
+  background-color: var(--bg-secondary);
 }
 
 .left .top {
@@ -49,12 +52,12 @@ h4 {
   width: 38px;
 }
 
-.left ul.list {
+.left ul.menuList {
   margin-top: 50px;
 }
 
-.left ul.list li {
-  color: #9197b3;
+.left ul.menuList li {
+  color: var(--text-muted);
   font-family: Pretendard;
   font-size: 16px;
   font-style: normal;
@@ -70,70 +73,71 @@ h4 {
   transition: color 0.3s ease;
 }
 
-.left ul.list li.on {
-  color: #2d67ff;
+.left ul.menuList li.on {
+  color: var(--accent-color);
   cursor: pointer;
   position: relative;
   transition: color 0.3s ease;
 }
 
-.left ul.list li.on::before {
+.left ul.menuList li.on::before {
   content: "";
   position: absolute;
   left: 0;
   bottom: 0;
   width: 0%;
   height: 2px;
-  background-color: #2d67ff;
+  background-color: var(--accent-color);
   transition: width 0.3s ease;
 }
 
-.left ul.list li.on:hover::before {
+.left ul.menuList li.on:hover::before {
   width: 100%;
 }
-.left ul.list li.on:hover {
-  color: #2d67ff;
+
+.left ul.menuList li.on:hover {
+  color: var(--accent-color);
 }
 
-.left ul.list li:hover {
-  color: #eee;
+.left ul.menuList li:hover {
+  color: var(--border-color);
 }
 
-.left ul.list li figure {
+.left ul.menuList li figure {
   width: 24px;
   height: 24px;
 }
 
-.left ul.list li figure img {
+.left ul.menuList li figure img {
   width: 100%;
 }
 
-.left ul.list li:hover img {
+.left ul.menuList li:hover img {
   opacity: 0.1;
 }
 
-.left ul.list li.on:hover img {
+.left ul.menuList li.on:hover img {
   opacity: 1;
 }
 
-.left ul.list li .arrow {
+.left ul.menuList li .arrow {
   margin-left: auto;
   display: none;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.left ul.list li:hover .arrow {
+.left ul.menuList li:hover .arrow {
   display: block;
-  transform: translateX(6px); /* 오른쪽으로 이동 */
+  transform: translateX(6px);
   opacity: 1;
 }
 
-.left ul.list li.on .arrow {
+.left ul.menuList li.on .arrow {
   display: block;
 }
 
 .left .top h3 {
-  color: #222;
+  color: var(--text-primary);
   font-family: Poppins;
   font-size: 26px;
   font-style: normal;
@@ -142,25 +146,26 @@ h4 {
   display: inline-block;
 }
 
+/* -----------------------------------메인 투두 리스트 컨텐츠 입니다다-------------------------------- */
+
 main {
   width: 100%;
   max-width: calc(100% - 760px);
-  background-color: #fff;
-  border-left: 1px solid #eee;
-  border-right: 1px solid #eee;
+  background-color: var(--bg-secondary);
+  border-left: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
   padding: 30px;
 }
 
-main .inputbox {
+main .inputBox {
   margin-top: 24px;
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap; /* 반응형 대응 */
+  flex-wrap: wrap;
   gap: 12px;
 }
 
-/* 입력창 */
-main .inputbox input {
+main .inputBox input {
   display: flex;
   width: calc(100% - 240px);
   padding: 16px;
@@ -168,25 +173,24 @@ main .inputbox input {
   align-items: flex-start;
   gap: 10px;
   border-radius: 6px;
-  border: 1px solid var(--Line-Regular_Color, #e5e5ec);
-  background: var(--BG-White_Color, #fff);
+  border: 1px solid var(--border-light);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
   transition: all 0.2s ease-in-out;
 }
 
-/* 포커스 시 강조 */
-main .inputbox input:focus {
+main .inputBox input:focus {
   outline: none;
-  border-color: #2d67ff;
+  border-color: var(--accent-color);
   box-shadow: 0 0 0 3px rgba(45, 103, 255, 0.2);
 }
 
-/* 버튼 묶음 */
-main .inputbox .btnwrap {
+main .inputBox .buttonWrap {
   display: flex;
   gap: 8px;
 }
 
-main .inputbox .btnwrap button {
+main .inputBox .buttonWrap button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -204,7 +208,7 @@ main .inputbox .btnwrap button {
   overflow: hidden;
 }
 
-main .inputbox .btnwrap button::after {
+main .inputBox .buttonWrap button::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -214,68 +218,53 @@ main .inputbox .btnwrap button::after {
   pointer-events: none;
 }
 
-main .inputbox .btnwrap button:hover::after {
+main .inputBox .buttonWrap button:hover::after {
   border-color: rgba(0, 0, 0, 0.1);
 }
 
-main .inputbox .btnwrap button:hover {
+main .inputBox .buttonWrap button:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
 }
 
-main .inputbox .btnwrap button:active {
+main .inputBox .buttonWrap button:active {
   transform: scale(0.95);
   opacity: 0.9;
 }
 
-main .inputbox .btnwrap button:first-child {
+main .inputBox .buttonWrap button:first-child {
   color: white;
   background: linear-gradient(135deg, #2d67ff, #4f80ff, #89aaff);
-
   border: none;
 }
 
-main .inputbox .btnwrap button:last-child {
-  color: #2d67ff;
-  background: #fff;
-  border: 1px solid #2d67ff;
+main .inputBox .buttonWrap button:last-child {
+  color: var(--accent-color);
+  background: var(--bg-secondary);
+  border: 1px solid var(--accent-color);
 }
 
-main .inputbox .btnwrap button svg {
+main .inputBox .buttonWrap button svg {
   width: 20px;
   height: 20px;
   fill: currentColor;
 }
-@media (max-width: 600px) {
-  main .inputbox {
-    flex-direction: column;
-    align-items: stretch;
-  }
 
-  main .inputbox input {
-    width: 100%;
-  }
-
-  main .inputbox .btnwrap {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  main .inputbox .btnwrap button {
-    width: 100%;
-  }
-}
-
-main .listwrap {
+main .listWrap {
   padding: 30px;
-  box-shadow: 6px 4px 10px -1px rgba(35, 48, 59, 0.1);
+  box-shadow: 6px 4px 10px -1px var(--shadow-light);
   border-radius: 16px;
-  background: #fff;
+  background: var(--bg-secondary);
   margin-top: 30px;
   overflow: hidden;
 }
 
-main .listwrap .todo-container {
+main .listWrap h3 {
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}
+
+main .listWrap .todoContainer {
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -283,7 +272,7 @@ main .listwrap .todo-container {
   overflow-y: auto;
 }
 
-main .listwrap .schedule-container {
+main .listWrap .scheduleContainer {
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -291,58 +280,59 @@ main .listwrap .schedule-container {
   overflow-y: auto;
 }
 
-main .listwrap ul.todolist li,
-main .listwrap ul.schedulelist li {
+main .listWrap ul.todoList li,
+main .listWrap ul.scheduleList li {
   display: flex;
   padding: 20px 0px;
   align-items: center;
   gap: 8px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--border-color);
 }
 
-main .listwrap ul.todolist li.todo-item {
+main .listWrap ul.todoList li.todoItem {
   cursor: pointer;
 }
 
-main .listwrap ul.schedulelist li.schedule-item {
+main .listWrap ul.scheduleList li.scheduleItem {
   cursor: pointer;
 }
 
-main .listwrap ul.todolist li input[type="checkbox"],
-main .listwrap ul.schedulelist input[type="checkbox"] {
+main .listWrap ul.todoList li input[type="checkbox"],
+main .listWrap ul.scheduleList input[type="checkbox"] {
   width: 22px;
   height: 22px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border-color);
   border-radius: 50%;
   appearance: none;
   cursor: pointer;
   position: relative;
   margin-top: 2px;
   transition: border-color 0.4s ease;
+  background: var(--bg-secondary);
 }
 
-main .listwrap ul.todolist li input[type="checkbox"]:focus,
-main .listwrap ul.schedulelist li input[type="checkbox"]:focus {
-  border: 1px solid #2d67ff;
+main .listWrap ul.todoList li input[type="checkbox"]:focus,
+main .listWrap ul.scheduleList li input[type="checkbox"]:focus {
+  border: 1px solid var(--accent-color);
 }
 
-main .listwrap ul.todolist li input[type="checkbox"]:checked::before,
-main .listwrap ul.schedulelist li input[type="checkbox"]:checked::before {
+main .listWrap ul.todoList li input[type="checkbox"]:checked::before,
+main .listWrap ul.scheduleList li input[type="checkbox"]:checked::before {
   content: "";
   position: absolute;
   top: 2px;
   left: 7px;
   width: 5px;
   height: 10px;
-  border: solid #2d67ff;
+  border: solid var(--accent-color);
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
   transition: border-color 0.4s ease;
 }
 
-main .listwrap ul.todolist li label,
-main .listwrap ul.schedulelist li label {
-  color: #222;
+main .listWrap ul.todoList li label,
+main .listWrap ul.scheduleList li label {
+  color: var(--text-primary);
   font-family: Pretendard;
   font-size: 16px;
   font-weight: 400;
@@ -353,123 +343,161 @@ main .listwrap ul.schedulelist li label {
   transition: color 0.3s ease;
 }
 
-main .listwrap ul.todolist li label:hover,
-main .listwrap ul.schedulelist li label:hover {
-  color: #2d67ff;
+main .listWrap ul.todoList li label:hover,
+main .listWrap ul.scheduleList li label:hover {
+  color: var(--accent-color);
 }
 
-main .listwrap ul.todolist li input[type="checkbox"]:focus + label,
-main .listwrap ul.schedulelist li input[type="checkbox"]:focus + label {
-  color: #2d67ff;
+main .listWrap ul.todoList li input[type="checkbox"]:focus + label,
+main .listWrap ul.scheduleList li input[type="checkbox"]:focus + label {
+  color: var(--accent-color);
   outline: none;
 }
+
+.checkboxWrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.todoText,
+.scheduleText {
+  color: var(--text-primary);
+  font-family: Pretendard;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.4px;
+  transition: color 0.3s ease;
+}
+
+.todoText:hover,
+.scheduleText:hover {
+  color: var(--accent-hover);
+  transition: 0.2s;
+}
+
+.deleteBtn {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  color: var(--delete-color);
+  opacity: 0;
+  transition: opacity 0.2s;
+  font-size: 18px;
+}
+
+.todoItem:hover .deleteBtn,
+.scheduleItem:hover .deleteBtn {
+  opacity: 1;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateY(0);
+}
+
+/* ----------------------------------- right side 메뉴입니다   ------------------------------- */
 
 .right {
   width: 100%;
   max-width: 400px;
-  border-left: 1px solid #eee;
+  border-left: 1px solid var(--border-color);
   padding: 30px;
-  background-color: #fff;
+  background-color: var(--bg-secondary);
 }
 
-.right .profile {
+.profileSection {
   margin-top: 50px;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid var(--border-color);
   padding: 50px 0;
 }
 
-.right .profile ul li {
+.profileSection h4 {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+  font-family: Pretendard;
+}
+
+.profileSection ul li {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-top: 28px;
-  cursor: pointer;
 }
 
-.right .profile ul li:hover span.email {
-  color: #2d67ff;
-}
-
-.right .profile ul li:hover a {
-  background-color: #222;
-  color: #fff;
-}
-
-.right .profile ul li:first-child {
+.profileSection ul li:first-child {
   margin-top: 0;
 }
 
-.right .profile ul li .info {
+.profileSection ul li .infoBox {
   display: flex;
   gap: 10px;
+  align-items: center;
 }
 
-.right .profile ul li .info p.img {
+.profileSection ul li .infoBox .profileImg {
   width: 42px;
   height: 42px;
   border-radius: 50%;
   overflow: hidden;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border-color);
+  flex-shrink: 0;
 }
 
-.right .profile ul li .info p.img img {
+.profileSection ul li .infoBox .profileImg img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.right .profile ul li .info p.txt span {
+.profileSection ul li .infoBox .profileText span {
   display: block;
   font-family: Pretendard;
 }
 
-.right .profile ul li .info p.txt span.email {
+.profileSection ul li .infoBox .profileText .email {
   font-size: 15px;
-  color: #222;
-  font-style: normal;
+  color: var(--text-primary);
   font-weight: 400;
-  line-height: 22px; /* 157.143% */
+  line-height: 22px;
   letter-spacing: -0.35px;
 }
 
-.right .profile ul li .info p.txt span.name {
-  color: #767676;
-  font-family: Pretendard;
+.profileSection ul li .infoBox .profileText .name {
   font-size: 13px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 18px; /* 169.231% */
+  color: var(--text-secondary);
+  line-height: 18px;
   letter-spacing: -0.325px;
 }
 
-.right .profile ul li a {
-  padding: 0 18px;
+.profileSection ul li a {
+  padding: 4px 16px;
   border-radius: 6px;
-  border: 1px solid #ddd;
-  color: #222;
-  transition: all 0.3s ease-in-out;
-  font-family: Pretendard;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
   font-size: 13px;
-  font-style: normal;
-  font-weight: 400;
-  letter-spacing: -0.325px;
-  display: block;
+  font-family: Pretendard;
+  transition: all 0.3s ease;
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
+  text-decoration: none;
 }
 
-.right .profile ul li a:hover {
-  background-color: #222;
-  color: #fff;
+.profileSection ul li a:hover {
+  background-color: var(--text-primary);
+  color: var(--bg-secondary);
 }
-
-.stats-container {
+.statsContainer {
   min-width: 0;
   text-align: center;
   flex: 1;
   padding-top: 30px;
 }
 
-.completion-rate {
+.completionRate {
   margin-bottom: 20px;
   position: relative;
   width: 200px;
@@ -477,10 +505,10 @@ main .listwrap ul.schedulelist li input[type="checkbox"]:focus + label {
   margin: 0 auto;
 }
 
-.rate {
+.completionRate .rate {
   font-size: 36px;
   font-weight: 900;
-  color: #2d67ff;
+  color: var(--accent-color);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -494,242 +522,35 @@ main .listwrap ul.schedulelist li input[type="checkbox"]:focus + label {
   height: 100% !important;
 }
 
-.stats-detail {
+.statsDetail {
   font-size: 20px;
   line-height: 1.5;
-  color: #2d67ff;
+  color: var(--accent-color);
   margin-top: 20px;
   text-align: center;
 }
 
-.add-todo {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-top: 20px;
-}
-
-.add-todo > input {
-  width: 100%;
-  height: 44px;
-  border: 2px solid #2d67ff;
-  color: #2d67ff;
-  border-radius: 10px 0 0 10px;
-  padding: 0 20px;
-  font-size: 20px;
-  background-color: #f2f6ff;
-  flex: 1;
-}
-
-.btnlist {
-  display: flex;
-  flex-direction: row;
-}
-
-.add-todo-button,
-.add-schedule-button {
-  height: 49px;
-  background-color: #2d67ff;
-  color: white;
-  border: none;
-  cursor: pointer;
-  transition: background 0.2s;
-  white-space: nowrap;
-  font-size: 18px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.add-schedule-button {
-  border-radius: 0 10px 10px 0;
-  background-color: #1b4ddb;
-}
-
-.todo-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 16px;
-  border-bottom: 1px solid #eee;
-  gap: 12px;
-}
-
-.checkbox-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex: 1;
-}
-
-.todo-text:hover {
-  color: #1b4ddb;
-  transition: 0.2s;
-}
-
-.schedule-text:hover {
-  color: #1b4ddb;
-  transition: 0.2s;
-}
-
-.delete-btn {
+.deleteBtn {
   background: none;
   border: none;
   padding: 4px;
   cursor: pointer;
-  color: #ff6b6b;
+  color: var(--delete-color);
   opacity: 0;
   transition: opacity 0.2s;
   font-size: 18px;
 }
 
-main .listwrap .form::-webkit-scrollbar {
-  width: 6px;
+.todoItem:hover .deleteBtn,
+.scheduleItem:hover .deleteBtn {
+  opacity: 1;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateY(0);
 }
 
-@media screen and (max-width: 1400px) {
-  h4 {
-    font-size: 16px;
-    margin-bottom: 12px;
-  }
-  h3 {
-    font-size: 16px;
-  }
-
-  .container {
-    gap: 30px;
-  }
-
-  .left {
-    display: none;
-  }
-
-  main {
-    padding: 20px;
-    max-width: 100%;
-  }
-
-  main .inputbox {
-    margin-top: 16px;
-  }
-
-  main .inputbox input {
-    width: calc(100% - 192px);
-  }
-
-  main .inputbox .btnwrap button {
-    padding: 10px 24px;
-    font-size: 14px;
-  }
-
-  main .listwrap {
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 20px;
-  }
-
-  main .listwrap .form {
-    height: 250px;
-  }
-
-  main .listwrap ul.todolist li {
-    padding: 14px 0;
-    gap: 6px;
-  }
-
-  main .listwrap ul.schedulelist li {
-    padding: 14px 0;
-    gap: 6px;
-  }
-
-  .right {
-    padding: 20px;
-    max-width: 300px;
-  }
-
-  .right .profile {
-    margin-top: 30px;
-    padding: 30px 0;
-  }
-
-  .right .profile ul li {
-    margin-top: 24px;
-  }
-
-  .right .profile ul li .info {
-    gap: 8px;
-  }
-
-  .right .profile ul li a {
-    padding: 0 14px;
-    border-radius: 4px;
-    font-size: 12px;
-  }
-
-  .right .profile ul li .info p.txt span.email {
-    font-size: 14px;
-  }
-
-  .stats-detail p {
-    font-size: 16px;
-  }
-}
-
-@media screen and (max-width: 800px) {
-  h2 {
-    font-size: 20px;
-  }
-
-  .right {
-    display: none;
-  }
-
-  main {
-    padding: 25px 15px;
-  }
-
-  main .inputbox .btnwrap {
-    width: 100%;
-  }
-
-  main .inputbox .btnwrap button {
-    width: 50%;
-  }
-
-  main .inputbox {
-    gap: 8px;
-  }
-
-  main .inputbox input {
-    width: 100%;
-    padding: 12px 10px;
-  }
-
-  main .inputbox .btnwrap button {
-    padding: 8px 24px;
-    font-size: 14px;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  main .inputbox .btnwrap button {
-    width: 100%;
-  }
-
-  .add-todo-button,
-  .add-schedule-button {
-    height: 41px;
-  }
-}
-
-/* ------------------- 추가 애니메이션 효과 입니다 ------------------------------- */
+/* ------------------------- 추가 애니메이션 효과 입니다 ------------------------------- */
 
 main .listwrap ul.todolist li input[type="checkbox"]:checked::before {
-  animation: checkmark 0.3s ease forwards;
-}
-
-main .listwrap ul.schedulelist li input[type="checkbox"]:checked::before {
   animation: checkmark 0.3s ease forwards;
 }
 
@@ -750,12 +571,6 @@ main .listwrap ul.todolist li {
   animation: fadeInUp 0.4s ease forwards;
 }
 
-main .listwrap ul.schedulelist li {
-  opacity: 0;
-  transform: translateY(10px);
-  animation: fadeInUp 0.4s ease forwards;
-}
-
 @keyframes fadeInUp {
   to {
     opacity: 1;
@@ -764,12 +579,6 @@ main .listwrap ul.schedulelist li {
 }
 
 .todo-item:hover .delete-btn {
-  opacity: 1;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  transform: translateY(0);
-}
-
-.schedule-item:hover .delete-btn {
   opacity: 1;
   transition: opacity 0.3s ease, transform 0.3s ease;
   transform: translateY(0);
@@ -786,4 +595,108 @@ main .listwrap ul.schedulelist li {
 
 main .listwrap .form::-webkit-scrollbar {
   width: 6px;
+}
+
+/* -------------------- 반응형 ------------------------------ */
+
+@media screen and (max-width: 1600px) {
+  body {
+    overflow: auto;
+  }
+
+  h4 {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
+  .container {
+    gap: 30px;
+  }
+
+  .left {
+    display: none;
+  }
+
+  .right {
+    max-width: 320px;
+  }
+
+  main {
+    padding: 20px;
+    max-width: 100%;
+  }
+
+  .themeToggle {
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .themeToggle {
+    width: 45px;
+    height: 45px;
+    font-size: 18px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  .right {
+    display: none;
+  }
+
+  main {
+    padding: 25px 15px;
+  }
+
+  main .inputBox .buttonWrap {
+    width: 100%;
+  }
+
+  main .inputBox .buttonWrap button {
+    width: 50%;
+  }
+
+  main .inputBox {
+    gap: 8px;
+  }
+
+  main .inputBox input {
+    width: 100%;
+    padding: 12px 10px;
+  }
+
+  main .inputBox .buttonWrap button {
+    padding: 8px 24px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  main .inputBox {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  main .inputBox input {
+    width: 100%;
+  }
+
+  main .inputBox .buttonWrap {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  main .inputBox .buttonWrap button {
+    width: 100%;
+  }
 }

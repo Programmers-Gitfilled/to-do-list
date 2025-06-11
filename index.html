@@ -7,17 +7,25 @@
     <link rel="stylesheet" href="default.css" />
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="img/favicon.ico" />
-    <script src="script.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js" defer></script>
   </head>
+
   <body>
+    <!-- 테마 토글 버튼 -->
+    <button class="themeToggle" id="themeToggle" aria-label="테마 전환">
+      ☀️
+    </button>
+
     <div class="container">
       <div class="left">
         <div class="top">
-          <figure><img src="img/favicon.ico" alt="로고이미지" /></figure>
-          <h3>Todolist</h3>
+          <figure>
+            <img src="img/favicon.ico" alt="" />
+          </figure>
+          <h3>TodoList</h3>
         </div>
-        <ul class="list">
+        <ul class="menuList">
           <li class="on">
             <figure>
               <img class="icon" src="img/icon01.png" alt="" />
@@ -27,19 +35,19 @@
           </li>
           <li>
             <figure>
-              <img class="icon" src="img/icon02.png" alt="" />
+              <img class="icon" src="img/icon03.png" alt="" />
             </figure>
             <p>Home</p>
           </li>
           <li>
             <figure>
-              <img class="icon" src="img/icon03.png" alt="" />
+              <img class="icon" src="img/icon04.png" alt="" />
             </figure>
             <p>Schedules</p>
           </li>
           <li>
             <figure>
-              <img class="icon" src="img/icon04.png" alt="" />
+              <img class="icon" src="img/icon05.png" alt="" />
             </figure>
             <p>Todos</p>
           </li>
@@ -53,40 +61,40 @@
       </div>
       <main>
         <div class="date">
-          <span class="today-label"></span>
-          <span class="today-date"></span>
+          <span class="todayLabel"></span>
+          <span class="todayDate"></span>
         </div>
-        <div class="inputbox">
+        <div class="inputBox">
           <input
-            class="todo-input schedule-input"
+            class="todoInput scheduleInput"
             type="text"
             placeholder="오늘의 투두리스트를 작성해주세요."
           />
-          <p class="btnwrap">
-            <button class="add-todo-button">Todo</button>
-            <button class="add-schedule-button">스케줄</button>
+          <p class="buttonWrap">
+            <button class="addTodoButton">Todo</button>
+            <button class="addScheduleButton">스케줄</button>
           </p>
         </div>
 
-        <div class="listwrap">
+        <div class="listWrap">
           <h3>Todos</h3>
-          <div class="todo-container">
-            <ul class="todolist"></ul>
+          <div class="todoContainer">
+            <ul class="todoList"></ul>
           </div>
         </div>
 
-        <div class="listwrap">
+        <div class="listWrap">
           <h3>Schedules</h3>
-          <div class="schedule-container">
-            <ul class="schedulelist"></ul>
+          <div class="scheduleContainer">
+            <ul class="scheduleList"></ul>
           </div>
         </div>
       </main>
 
       <div class="right">
         <h4>진행률</h4>
-        <div class="stats-container">
-          <div class="completion-rate">
+        <div class="statsContainer">
+          <div class="completionRate">
             <canvas
               id="completionChart"
               width="200"
@@ -100,69 +108,99 @@
             ></canvas>
             <span class="rate">0%</span>
           </div>
-          <div class="stats-detail">
-            <p>총 todo 수: <span class="total-count"></span>개</p>
-            <p>달성 todo 수: <span class="completed-count"></span>개</p>
+          <div class="statsDetail">
+            <p>총 todo 수: <span class="totalCount"></span>개</p>
+            <p>달성 todo 수: <span class="completedCount"></span>개</p>
           </div>
         </div>
-        <div class="profile">
+
+        <div class="profileSection">
           <h4>3팀의 프로필</h4>
           <ul>
             <li>
-              <div class="info">
-                <p class="img"><img src="img/유정 프로필.jpg" alt="" /></p>
-                <p class="txt">
+              <div class="infoBox">
+                <p class="profileImg">
+                  <img src="img/유정 프로필.jpg" alt="황유정 프로필 이미지" />
+                </p>
+                <p class="profileText">
                   <span class="email">YooJeong01</span>
                   <span class="name">Hwang Yoo Jeong</span>
                 </p>
               </div>
-              <a href="https://github.com/YooJeong01" target="_blank"
+              <a
+                href="https://github.com/YooJeong01"
+                target="_blank"
+                title="새창열림"
                 >바로가기</a
               >
             </li>
             <li>
-              <div class="info">
-                <p class="img"><img src="img/소민 프로필.png" alt="" /></p>
-                <p class="txt">
+              <div class="infoBox">
+                <p class="profileImg">
+                  <img src="img/소민 프로필.png" alt="이소민 프로필 이미지" />
+                </p>
+                <p class="profileText">
                   <span class="email">mintsky0172</span>
                   <span class="name">Somin Lee</span>
                 </p>
               </div>
-              <a href="https://github.com/mintsky0172" target="_blank"
+              <a
+                href="https://github.com/mintsky0172"
+                target="_blank"
+                title="새창열림"
                 >바로가기</a
               >
             </li>
             <li>
-              <div class="info">
-                <p class="img"><img src="img/지현 프로필.png" alt="" /></p>
-                <p class="txt">
+              <div class="infoBox">
+                <p class="profileImg">
+                  <img src="img/지현 프로필.png" alt="변지현 프로필 이미지" />
+                </p>
+                <p class="profileText">
                   <span class="email">jihyun9912</span>
                   <span class="name">Byun Ji Hyun</span>
                 </p>
               </div>
-              <a href="https://github.com/jihyun9912" target="_blank"
+              <a
+                href="https://github.com/jihyun9912"
+                target="_blank"
+                title="새창열림"
                 >바로가기</a
               >
             </li>
             <li>
-              <div class="info">
-                <p class="img"><img src="img/승은 프로필.png" alt="" /></p>
-                <p class="txt">
+              <div class="infoBox">
+                <p class="profileImg">
+                  <img src="img/승은 프로필.png" alt="이승은 프로필 이미지" />
+                </p>
+                <p class="profileText">
                   <span class="email">seungdev</span>
                   <span class="name">Lee Seung Eun</span>
                 </p>
               </div>
-              <a href="https://github.com/seungdev" target="_blank">바로가기</a>
+              <a
+                href="https://github.com/seungdev"
+                target="_blank"
+                title="새창열림"
+                >바로가기</a
+              >
             </li>
             <li>
-              <div class="info">
-                <p class="img"><img src="img/민석 프로필.png" alt="" /></p>
-                <p class="txt">
+              <div class="infoBox">
+                <p class="profileImg">
+                  <img src="img/민석 프로필.png" alt="신민석 프로필 이미지" />
+                </p>
+                <p class="profileText">
                   <span class="email">msshin99</span>
-                  <span class="name">min seok shin</span>
+                  <span class="name">Min Seok Shin</span>
                 </p>
               </div>
-              <a href="https://github.com/msshin99" target="_blank">바로가기</a>
+              <a
+                href="https://github.com/msshin99"
+                target="_blank"
+                title="새창열림"
+                >바로가기</a
+              >
             </li>
           </ul>
         </div>

@@ -41,22 +41,43 @@ if (themeToggle) {
     const currentTheme = appData.theme;
     const newTheme = currentTheme === "dark" ? "light" : "dark";
     setTheme(newTheme);
+    saveToLocalStorage();
   });
 }
 
+function saveToLocalStorage() {
+  const data = {
+    theme: appData.theme,
+    todos: todoListArray,
+    schedules: scheduleArray,
+  };
+  localStorage.setItem("appData", JSON.stringify(data));
+}
+
+function loadFromLocalStorage() {
+  const saved = localStorage.getItem("appData");
+  if (saved) {
+    const parsed = JSON.parse(saved);
+    appData = { ...appData, ...parsed };
+    todoListArray = parsed.todos || [];
+    scheduleArray = parsed.schedules || [];
+  }
+}
+
 document.addEventListener("DOMContentLoaded", function () {
-  setTheme("light");
+  loadFromLocalStorage();
+  setTheme(appData.theme || "light");
 
   initChart();
   init();
   getToday();
 
-  const addTodoButton = document.querySelector(".add-todo-button");
-  const addScheduleButton = document.querySelector(".add-schedule-button");
-  const todoInput = document.querySelector(".todo-input");
-  const todoList = document.querySelector(".todolist");
-  const scheduleInput = document.querySelector(".schedule-input");
-  const scheduleList = document.querySelector(".schedulelist");
+  const addTodoButton = document.querySelector(".addTodoButton");
+  const addScheduleButton = document.querySelector(".addScheduleButton");
+  const todoInput = document.querySelector(".todoInput");
+  const todoList = document.querySelector(".todoList");
+  const scheduleInput = document.querySelector(".scheduleInput");
+  const scheduleList = document.querySelector(".scheduleList");
 
   if (addTodoButton && todoInput && todoList) {
     addTodoButton.addEventListener("click", function () {
@@ -108,12 +129,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (todoList) {
     todoList.addEventListener("click", (e) => handleRemove(e, "todo"));
-  }
-  if (scheduleList) {
-    scheduleList.addEventListener("click", (e) => handleRemove(e, "schedule"));
-  }
-
-  if (todoList) {
     todoList.addEventListener("change", (e) => {
       const [id, isCompleted] = handleChange(e, "todo");
       if (id) {
@@ -128,6 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   if (scheduleList) {
+    scheduleList.addEventListener("click", (e) => handleRemove(e, "schedule"));
     scheduleList.addEventListener("change", (e) => {
       const [id, isCompleted] = handleChange(e, "schedule");
       if (id) {
@@ -178,8 +194,8 @@ function initChart() {
 }
 
 function handleRemove(e, type) {
-  if (e.target.classList.contains("delete-btn")) {
-    const li = e.target.closest(`.${type}-item`);
+  if (e.target.classList.contains("deleteBtn")) {
+    const li = e.target.closest(`.${type}Item`);
     if (li) {
       const id = li.dataset.id;
       removeItem(id, type);
@@ -189,7 +205,7 @@ function handleRemove(e, type) {
 
 function handleChange(e, type) {
   if (e.target.type === "checkbox") {
-    const li = e.target.closest(`.${type}-item`);
+    const li = e.target.closest(`.${type}Item`);
     if (li) {
       const id = li.dataset.id;
       const isCompleted = e.target.checked;
@@ -200,7 +216,7 @@ function handleChange(e, type) {
 }
 
 function getToday() {
-  const todayDate = document.querySelector(".today-date");
+  const todayDate = document.querySelector(".todayDate");
   if (todayDate) {
     const today = new Date();
     const year = today.getFullYear().toString();
@@ -214,16 +230,14 @@ function getToday() {
 
 function createItem(type, value, id, isCompleted = false) {
   return `
-    <li class="${type}-item" data-id="${id}">
-      <div class="checkbox-wrapper">
+    <li class="${type}Item" data-id="${id}">
+      <div class="checkboxWrapper">
         <input type="checkbox" id="${type}-${id}" ${
     isCompleted ? "checked" : ""
   } />
-        <span class="${type}-text">${value}</span>
+        <span class="${type}Text">${value}</span>
       </div>
-      <button class="delete-btn">
-        ❌
-      </button>
+      <button class="deleteBtn">❌</button>
     </li>
   `.trim();
 }
@@ -256,6 +270,7 @@ function renderItem({
       scheduleArray.push({ id, value, isCompleted });
       appData.schedules = [...scheduleArray];
     }
+    saveToLocalStorage();
   }
 
   updateStats();
@@ -283,8 +298,8 @@ function updateStats() {
     appData.alertShow = false;
   }
 
-  const totalCountEl = document.querySelector(".total-count");
-  const completedCountEl = document.querySelector(".completed-count");
+  const totalCountEl = document.querySelector(".totalCount");
+  const completedCountEl = document.querySelector(".completedCount");
   const rateEl = document.querySelector(".rate");
 
   if (totalCountEl) totalCountEl.textContent = totalCnt;
@@ -299,6 +314,8 @@ function updateStats() {
     ];
     completionChart.update();
   }
+
+  saveToLocalStorage();
 }
 
 function removeItem(id, type) {
@@ -311,19 +328,19 @@ function removeItem(id, type) {
   if (type === "todo") {
     todoListArray = todoListArray.filter((item) => item.id !== id);
     appData.todos = [...todoListArray];
-    updateStats();
   }
 
   if (type === "schedule") {
     scheduleArray = scheduleArray.filter((item) => item.id !== id);
     appData.schedules = [...scheduleArray];
-    updateStats();
   }
+
+  updateStats();
 }
 
 function init() {
-  const todoList = document.querySelector(".todolist");
-  const scheduleList = document.querySelector(".schedulelist");
+  const todoList = document.querySelector(".todoList");
+  const scheduleList = document.querySelector(".scheduleList");
 
   const savedTodos = appData.todos;
   const savedSchedules = appData.schedules;
