@@ -12,7 +12,6 @@ TO-DO-LIST/
 ├── script.js          # 메인
 ├── style.css
 ├── default.css        # reset
-├── Responsive.css
 └── lib/
     ├── state.js       # 상태 관리
     ├── storage.js     # 로컬스토리지 관리
