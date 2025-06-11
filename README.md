@@ -64,6 +64,7 @@ TO-DO-LIST/
 
 ## 📷 미리보기
 
+![Uploading todolist.PNG…]()
 
 
 
