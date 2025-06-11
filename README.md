@@ -64,7 +64,9 @@ TO-DO-LIST/
 
 ## 📷 미리보기
 
-![Uploading todolist.PNG…]()
+![image](https://github.com/user-attachments/assets/f470aa58-0eae-4e61-ba34-6f6af20870cc)
+
+
 
 
 
