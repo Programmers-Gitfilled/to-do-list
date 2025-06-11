@@ -1,0 +1,164 @@
+@charset "utf-8";
+
+/* -------------------- 기본 리셋 -------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  width: 100%;
+  background-color: #fff;
+  -webkit-font-smoothing: antialiased;
+  font: 300 16px/24px "Pretendard", "Noto Sans KR", sans-serif;
+  color: #6a6a6a;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+  margin: 0;
+}
+
+td *,
+div *,
+li *,
+span *,
+p * {
+  vertical-align: baseline;
+}
+
+img,
+hr {
+  border: none;
+}
+
+img {
+  vertical-align: middle;
+}
+
+strong,
+b {
+  font-weight: bold;
+}
+
+sup {
+  vertical-align: super;
+}
+
+button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+input,
+textarea {
+  user-select: auto;
+  -moz-user-select: auto;
+  -webkit-user-select: auto;
+  -ms-user-select: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+textarea {
+  border: 1px solid #d3d0c9;
+  padding: 10px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+.b {
+  font-weight: bold;
+}
+.u {
+  text-decoration: underline;
+}
+
+::selection {
+  background: #00285f;
+  color: #fff;
+}
+::-moz-selection {
+  background: #00285f;
+  color: #fff;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+  transform: translate3d(0, 0, 0);
+  transition-delay: 10ms;
+}
+
+.goTop.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ----------------------------------------------- 테마 css ------------------------------------------- */
+
+/* 테마 변수 */
+:root {
+  --bg-primary: #fafafa;
+  --bg-secondary: #fff;
+  --text-primary: #222;
+  --text-secondary: #767676;
+  --text-muted: #9197b3;
+  --border-color: #eee;
+  --border-light: #e5e5ec;
+  --accent-color: #2d67ff;
+  --accent-hover: #1b4ddb;
+  --delete-color: #ff6b6b;
+  --shadow-light: rgba(35, 48, 59, 0.1);
+  --schedule-color: #f8dd63;
+}
+
+[data-theme="dark"] {
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2d2d2d;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0b0;
+  --text-muted: #888888;
+  --border-color: #404040;
+  --border-light: #505050;
+  --accent-color: #4f80ff;
+  --accent-hover: #89aaff;
+  --delete-color: #ff8787;
+  --shadow-light: rgba(0, 0, 0, 0.3);
+  --schedule-color: #ffd700;
+}
+
+/* 테마 토글 버튼 */
+.themeToggle {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  z-index: 1000;
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-color);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px var(--shadow-light);
+}
+
+.themeToggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px var(--shadow-light);
+}
