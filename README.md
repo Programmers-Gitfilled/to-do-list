@@ -64,7 +64,12 @@ TO-DO-LIST/
 
 ## 📷 미리보기
 
-![image](https://github.com/user-attachments/assets/f470aa58-0eae-4e61-ba34-6f6af20870cc)
+![image](https://github.com/user-attachments/assets/f7290e3d-98fe-4a6a-bd76-89a2f0b050cc)
+
+
+![image](https://github.com/user-attachments/assets/420e4ba7-615f-4219-95a2-250730ce913a)
+
+
 
 
 
