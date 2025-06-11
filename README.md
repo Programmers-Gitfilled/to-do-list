@@ -53,7 +53,7 @@ TO-DO-LIST/
 
 ## 👣 유저 플로우
 
-![유저 플로우](https://github.com/user-attachments/assets/12ac0a00-03a0-4155-9a6f-85eddbacb87c)
+![유저 플로우](https://github.com/user-attachments/assets/ba6a69c9-16b8-4b37-b551-40dab3d5aac6)
 
 
 
