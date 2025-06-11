@@ -41,7 +41,7 @@ TO-DO-LIST/
 
 1. 이 저장소를 클론하거나 다운로드한 뒤, 브라우저에서 `index.html`을 열어 사용해보세요!
 
-    ``` markdown
+    ``` bash
     git clone https://github.com/Programmers-Gitfilled/to-do-list.git
     ```
 
@@ -54,7 +54,6 @@ TO-DO-LIST/
 - HTML
 - CSS
 - JavaScript (Vanilla JS)
-- Netlify
 
 
 
